@@ -9,6 +9,16 @@ export const metadata = {
   },
   description:
     "Corporate transport, logistics, relocation and fleet services across the UAE.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -1,0 +1,11 @@
+Rush Track V8 — favicon + HD brand logo
+
+1. Added browser/site favicon using the Rush Track R mark.
+2. Added 192x192 and 512x512 site icons.
+3. Added 180x180 Apple touch icon.
+4. Replaced the shared Rush Track wordmark image with a cleaner high-resolution transparent PNG.
+5. Updated Next.js metadata so the browser tab and devices use the new icons.
+6. Existing design/layout is unchanged.
+
+Paste this ZIP into the same existing project and choose Replace files in destination.
+Then run / refresh the site.
