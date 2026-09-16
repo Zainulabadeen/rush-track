@@ -1,0 +1,17 @@
+RUSH TRACK TRANSPORT LLC - QUICK START
+
+OPTION A - VS CODE
+1. Extract the ZIP.
+2. Open the extracted "rush-track-corporate" folder in VS Code.
+3. Terminal > New Terminal.
+4. Run: npm install
+5. Run: npm run dev
+6. Open: http://localhost:3000
+
+OPTION B - WINDOWS
+Double-click START-HERE-WINDOWS.bat.
+
+NOTE:
+- Keep internet connected while testing because the prototype photos are loaded from Unsplash.
+- The Rush Track logo is included locally.
+- RT Movers links already point to https://rtmoversuae.com/

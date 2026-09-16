@@ -1,0 +1,6 @@
+AFTER PASTE + REPLACE:
+1) Stop the dev server.
+2) Delete the .next folder inside your project.
+3) Run: npm run dev
+4) Hard refresh browser with Ctrl + F5
+5) If hydration warning still appears, open localhost in Incognito or disable browser extensions for localhost.

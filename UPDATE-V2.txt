@@ -1,0 +1,17 @@
+Rush Track Corporate Website — Home Design V2
+
+Changes in this version:
+- Cleaner, more minimal corporate homepage layout
+- More whitespace and simpler section structure
+- Reduced navigation clutter
+- RT Movers UAE linked as a group division
+- Added the supplied RT Movers logo locally
+- Added the supplied RT Movers uniform/service photo locally
+- RT Movers division now uses the real supplied brand visuals
+- Simplified trust metrics, industries and CTA sections
+- Rebuilt hero, about, divisions and fleet sections for a premium corporate look
+
+Run locally:
+1. npm install
+2. npm run dev
+3. Open http://localhost:3000

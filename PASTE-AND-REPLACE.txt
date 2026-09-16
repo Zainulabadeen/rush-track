@@ -1,0 +1,43 @@
+RUSH TRACK — HOME V3 UPDATE
+===========================
+
+THIS IS AN UPDATE PACKAGE FOR YOUR EXISTING rush-track-corporate PROJECT.
+You do NOT need to open a new project folder in VS Code.
+
+HOW TO APPLY
+------------
+1. Extract this ZIP.
+2. Inside it you will see: app, data, public.
+3. Copy those 3 folders.
+4. Paste them directly inside your EXISTING:
+   rush-track-corporate
+5. Windows will ask about files with the same names.
+   Choose: Replace the files in the destination.
+6. Do NOT delete node_modules and do NOT run npm install again.
+7. If npm run dev is already running, refresh the browser.
+   Otherwise run:
+      npm run dev
+8. Open:
+      http://localhost:3000
+
+WHAT THIS UPDATE CHANGES
+------------------------
+- Keeps the approved modern corporate design direction.
+- Hero has ONE CTA only; Play Our Story is removed.
+- About section label is now "About Us".
+- Divisions section label is now "Our Divisions".
+- Extra vertical spacing added above and below About Us.
+- Extra vertical spacing added above and below Our Divisions.
+- Warehousing & Storage is removed from the divisions.
+- Only 3 divisions remain:
+  1) Moving & Relocation
+  2) Transport & Logistics
+  3) Fleet Services
+- New generated Rush Track visual assets are included locally.
+- New custom division SVG icons are included locally.
+- Homepage headings and descriptions were rewritten in a cleaner corporate tone.
+- Contact form Warehousing & Storage option is removed.
+
+IMPORTANT
+---------
+Paste this update into the SAME old project. Do not create/open a new VS Code project.

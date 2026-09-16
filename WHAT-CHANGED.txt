@@ -1,0 +1,12 @@
+RUSH TRACK V6 — RESPONSIVE FULL-WIDTH HERO
+
+- Hero background now fills the complete viewport width on large screens.
+- Text remains aligned inside the same centered content container.
+- The truck/Dubai image now stays behind the full hero instead of starting only on the right side.
+- A responsive white-to-transparent veil keeps text readable without leaving a hard empty white half.
+- Large desktop, laptop, tablet and mobile each use tuned image positioning and gradient strength.
+- Mobile/tablet no longer split the hero into a white text block plus a separate lower image block.
+- Existing approved typography, CTA, About Us, Divisions and overall design direction are preserved.
+- Other photography sections received responsive object-position tuning so images crop more naturally at different screen sizes.
+
+PASTE + REPLACE into the same existing project folder.

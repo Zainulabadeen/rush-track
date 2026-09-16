@@ -1,0 +1,6 @@
+Rush Track V7 update
+- Fleet banner now spans the full viewport width while its text stays aligned to the normal site container.
+- Final CTA banner now spans the full viewport width with responsive image cropping and aligned content.
+- Both bands adapt naturally on wide screens, laptops, tablets and phones.
+- Replaced the shared Rush Track header/mobile/footer logo asset with a 4x high-DPI transparent version using the same branding.
+- No redesign of the approved sections; this update only improves full-width behavior and visual sharpness.
