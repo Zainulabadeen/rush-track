@@ -3,7 +3,7 @@ import { ArrowRight, BadgeCheck, Compass, ShieldCheck, Users } from "lucide-reac
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { images } from "@/data/site";
+import { images, site } from "@/data/site";
 
 export const metadata = { title: "About Us" };
 
@@ -12,24 +12,29 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Rush Track"
-        title="Built to move business with confidence."
-        text="Rush Track Transport LLC is a Dubai-based corporate transport group bringing specialist operational services together under one trusted brand."
+        title="A focused transport group built for the UAE."
+        text="Rush Track Transport LLC connects commercial transport, moving and fleet support under one corporate direction while keeping each service specialised."
         image={images.office}
+        cta={false}
       />
 
       <section className="section section--white">
         <div className="container split-layout">
           <Reveal>
             <SectionHeading
-              eyebrow="Our Story"
-              title="A practical group built around movement, service and trust."
-              text="Rush Track brings together transport, logistics, relocation, warehousing and fleet support so clients can work with specialist teams without losing the consistency of a single corporate partner."
+              eyebrow="Our Structure"
+              title="Specialist services without unnecessary complexity."
+              text={
+                <>
+                  Our model is straightforward: <Link href="/divisions/transport-logistics">transport and logistics</Link> for commercial movement, <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">RT Movers</a> for dedicated moving and relocation, and <Link href="/divisions/fleet-services">fleet services</Link> for vehicle readiness and operational support.
+                </>
+              }
             />
           </Reveal>
           <Reveal delay={100}>
             <div className="quote-panel">
               <span>Our direction</span>
-              <blockquote>Move possibilities forward through dependable, connected transport solutions.</blockquote>
+              <blockquote>Keep movement dependable, communication clear and every service easy to understand.</blockquote>
             </div>
           </Reveal>
         </div>
@@ -37,13 +42,13 @@ export default function AboutPage() {
 
       <section className="section section--soft">
         <div className="container">
-          <Reveal><SectionHeading eyebrow="What Guides Us" title="Simple principles. Stronger operations." align="center" /></Reveal>
+          <Reveal><SectionHeading eyebrow="What Guides Us" title="Simple principles that support better operations." align="center" /></Reveal>
           <div className="value-grid">
             {[
-              [ShieldCheck, "Reliability", "Plan carefully, communicate clearly and deliver consistently."],
-              [BadgeCheck, "Professional Standards", "Build trust through safe, presentable and disciplined operations."],
-              [Users, "People First", "Treat customers, partners and teams with respect at every step."],
-              [Compass, "Progress", "Improve systems, fleet readiness and service quality continuously."],
+              [ShieldCheck, "Reliability", "Plan carefully, communicate clearly and follow through consistently."],
+              [BadgeCheck, "Professional Standards", "Keep people, vehicles and service presentation ready for the job."],
+              [Users, "People First", "Treat customers, partners and teams with respect at every stage."],
+              [Compass, "Progress", "Improve systems, fleet readiness and service quality as the group grows."],
             ].map(([Icon, title, text], i) => (
               <Reveal key={title} delay={i * 60}><div className="value-card"><Icon /><h3>{title}</h3><p>{text}</p></div></Reveal>
             ))}
@@ -54,12 +59,18 @@ export default function AboutPage() {
       <section className="section section--white">
         <div className="container split-layout split-layout--reverse">
           <Reveal>
-            <div className="image-card"><img src={images.workers} alt="Logistics professionals" /></div>
+            <div className="image-card"><img src={images.fleetService} alt="Rush Track operations team supporting fleet readiness" /></div>
           </Reveal>
           <Reveal delay={100}>
             <div>
-              <SectionHeading eyebrow="Our People" title="The group is only as strong as the teams behind it." text="From drivers and movers to operations, coordination and fleet support, Rush Track is designed around practical teamwork and accountability." />
-              <Link href="/contact?topic=careers" className="btn btn--outline">Explore Careers <ArrowRight size={18} /></Link>
+              <SectionHeading
+                eyebrow="Connected by Service"
+                title="The group works best when the right specialist team owns the job."
+                text="That keeps responsibilities clear while allowing clients to move between services without starting from zero each time."
+              />
+              <p className="page-copy-links">
+                Explore <Link href="/divisions">our divisions</Link>, see the <Link href="/industries">industries we support</Link>, or <Link href="/contact">contact Rush Track</Link> about a specific requirement.
+              </p>
             </div>
           </Reveal>
         </div>

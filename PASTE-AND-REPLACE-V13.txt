@@ -1,0 +1,8 @@
+1. Stop the current dev server with Ctrl+C.
+2. Extract this ZIP.
+3. Copy everything from the extracted folder into your existing E:\rush-track-corporate project.
+4. Choose Replace files in the destination.
+5. In PowerShell inside the project run:
+   if (Test-Path .next) { Remove-Item -Recurse -Force .next }
+   npm run dev
+6. Open http://localhost:3001 and hard refresh with Ctrl+F5.

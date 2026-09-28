@@ -11,10 +11,10 @@ export const metadata = {
     "Corporate transport, logistics, relocation and fleet services across the UAE.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+      { url: "/rush-track-favicon-v11.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", type: "image/x-icon" },
     ],
+    shortcut: "/rush-track-favicon-v11.png",
     apple: [
       { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
     ],

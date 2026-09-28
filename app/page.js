@@ -33,11 +33,10 @@ const industryIcons = [
 ];
 
 const trustItems = [
-  [ShieldCheck, "Reliability First", "Consistent service standards"],
-  [Truck, "Fleet Ready", "Prepared for daily operations"],
-  [MapPinned, "UAE-Wide", "Coverage across key locations"],
-  [Users, "Client Focused", "Built around real requirements"],
-  [CheckCircle2, "Safety Led", "Disciplined operational approach"],
+  [ShieldCheck, "Reliable Operations", "Clear standards from planning to delivery"],
+  [Truck, "Transport Ready", "Commercial movement across the UAE"],
+  [Users, "Specialist Teams", "Moving, transport and fleet expertise"],
+  [MapPinned, "UAE Coverage", "Support across key business locations"],
 ];
 
 export default function HomePage() {
@@ -52,19 +51,17 @@ export default function HomePage() {
         <div className="container rt-hero__inner">
           <Reveal>
             <div className="rt-hero__copy">
-              <span className="rt-eyebrow">Trusted transport partner in the UAE</span>
+              <span className="rt-eyebrow">Transport · Logistics · Relocation</span>
               <h1>
                 Reliable transport for <span>a stronger UAE.</span>
               </h1>
               <p>
-                Rush Track Transport LLC connects transport, logistics, relocation and fleet support
-                under one dependable corporate group—helping people, goods and businesses move with confidence.
+                Rush Track connects commercial transport, moving and fleet support under one corporate group,
+                giving businesses and communities a clearer way to keep people and goods moving.
               </p>
-              <div className="rt-hero__actions">
-                <Link href="/divisions" className="btn btn--gold rt-btn-large">
-                  Explore Our Services <ArrowRight size={18} />
-                </Link>
-              </div>
+              <Link href="/divisions" className="rt-inline-link rt-inline-link--hero">
+                Explore our divisions <ArrowRight size={17} />
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -73,7 +70,7 @@ export default function HomePage() {
       <section className="rt-trust-wrap">
         <div className="container">
           <Reveal>
-            <div className="rt-trust-card">
+            <div className="rt-trust-card rt-trust-card--four">
               {trustItems.map(([Icon, title, sub]) => (
                 <div className="rt-trust-item" key={title}>
                   <Icon aria-hidden="true" />
@@ -92,10 +89,10 @@ export default function HomePage() {
         <div className="container rt-about-grid">
           <Reveal>
             <div className="rt-about-media">
-              <img src={images.office} alt="Rush Track corporate transport operations in the UAE" />
+              <img src={images.office} alt="Rush Track transport operations in the UAE" />
               <div className="rt-about-badge">
                 <span>Built in the UAE</span>
-                <strong>For a moving world</strong>
+                <strong>Connected by one standard</strong>
               </div>
             </div>
           </Reveal>
@@ -103,30 +100,30 @@ export default function HomePage() {
           <Reveal delay={90}>
             <div className="rt-about-copy">
               <span className="rt-eyebrow">About Us</span>
-              <h2>A trusted transport partner for a stronger tomorrow.</h2>
+              <h2>One group. Three focused transport services.</h2>
               <p>
-                Rush Track brings specialist services together through a simple, coordinated structure.
-                Our focus is dependable execution, clear communication and practical solutions shaped around
-                the way businesses and communities move across the UAE.
+                Rush Track brings together <Link href="/divisions/transport-logistics">transport and logistics</Link>,
+                dedicated <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">moving and relocation through RT Movers</a>,
+                and <Link href="/divisions/fleet-services">fleet services</Link>. Each team keeps its specialist focus while sharing the same approach to reliability and clear communication.
               </p>
 
               <div className="rt-about-points">
                 <div>
                   <ShieldCheck />
-                  <span><strong>Reliable by design.</strong> Service standards built around consistency and accountability.</span>
+                  <span><strong>Reliable by design.</strong> Practical standards that support consistent service.</span>
                 </div>
                 <div>
                   <Wrench />
-                  <span><strong>Operationally practical.</strong> Solutions planned around real-world transport requirements.</span>
+                  <span><strong>Operationally practical.</strong> Solutions shaped around real transport requirements.</span>
                 </div>
                 <div>
                   <MapPinned />
-                  <span><strong>Connected across the UAE.</strong> One group supporting multiple transport needs.</span>
+                  <span><strong>Connected across the UAE.</strong> Specialist services within one corporate structure.</span>
                 </div>
               </div>
 
-              <Link href="/about" className="btn btn--gold rt-btn-large">
-                Learn More About Us <ArrowRight size={18} />
+              <Link href="/about" className="rt-inline-link">
+                Learn more about Rush Track <ArrowRight size={16} />
               </Link>
             </div>
           </Reveal>
@@ -139,11 +136,10 @@ export default function HomePage() {
             <div className="rt-section-head">
               <div>
                 <span className="rt-eyebrow">Our Divisions</span>
-                <h2>Specialist services. One connected group.</h2>
+                <h2>Specialist teams, connected where it matters.</h2>
               </div>
               <p>
-                Three focused divisions working under one corporate direction—so every service stays clear,
-                specialised and easy to access.
+                Moving, commercial transport and fleet support stay focused as individual services while working within one group.
               </p>
             </div>
           </Reveal>
@@ -154,12 +150,23 @@ export default function HomePage() {
                 <article className="rt-division-card">
                   <div className="rt-division-card__media">
                     <img src={item.image} alt={item.title} />
+                    {item.external && (
+                      <div className="rt-division-brand-badge">
+                        <img src={images.rtMoversLogo} alt="RT Movers" />
+                      </div>
+                    )}
                   </div>
 
                   <div className="rt-division-card__body">
-                    <img className="rt-division-card__icon" src={item.icon} alt="" aria-hidden="true" />
+                    {!item.external && <img className="rt-division-card__icon" src={item.icon} alt="" aria-hidden="true" />}
                     <span>{item.eyebrow}</span>
-                    <h3>{item.title}</h3>
+                    <h3>
+                      {item.external ? (
+                        <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">{item.title}</a>
+                      ) : (
+                        <Link href={`/divisions/${item.slug}`}>{item.title}</Link>
+                      )}
+                    </h3>
                     <p>{item.description}</p>
                     {item.external ? (
                       <a href={site.rtMoversUrl} target="_blank" rel="noreferrer" className="rt-card-link">
@@ -167,7 +174,7 @@ export default function HomePage() {
                       </a>
                     ) : (
                       <Link href={`/divisions/${item.slug}`} className="rt-card-link">
-                        Learn More <ArrowRight size={16} />
+                        Read about {item.title.toLowerCase()} <ArrowRight size={16} />
                       </Link>
                     )}
                   </div>
@@ -185,13 +192,13 @@ export default function HomePage() {
             <div className="rt-fleet-overlay" />
             <div className="container rt-fleet-copy-wrap">
               <div className="rt-fleet-copy">
-                <span className="rt-eyebrow rt-eyebrow--light">Our Fleet & Capabilities</span>
-                <h2>A modern fleet, built for what’s next.</h2>
+                <span className="rt-eyebrow rt-eyebrow--light">Fleet & Capabilities</span>
+                <h2>Prepared for the work before the journey starts.</h2>
                 <p>
-                  Vehicle readiness, maintenance discipline and the right operational support for dependable movement across the UAE.
+                  Vehicle readiness, planned maintenance and the right vehicle for the job support more dependable daily operations.
                 </p>
-                <Link href="/fleet" className="btn btn--gold rt-btn-large">
-                  View Our Fleet <ArrowRight size={18} />
+                <Link href="/fleet" className="rt-inline-link rt-inline-link--light">
+                  Explore our fleet approach <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
@@ -205,11 +212,10 @@ export default function HomePage() {
             <div className="rt-section-head rt-section-head--industries">
               <div>
                 <span className="rt-eyebrow">Industries We Serve</span>
-                <h2>Supporting key industries across the UAE.</h2>
+                <h2>Transport support shaped around the operation.</h2>
               </div>
               <p>
-                Flexible transport and logistics support for organisations with different operational demands,
-                schedules and service environments.
+                Different sectors work on different schedules. Our role is to keep movement practical, coordinated and dependable.
               </p>
             </div>
           </Reveal>
@@ -227,6 +233,9 @@ export default function HomePage() {
               );
             })}
           </div>
+          <p className="rt-section-followup">
+            See how our <Link href="/divisions/transport-logistics">transport and logistics services</Link> and <Link href="/divisions/fleet-services">fleet support</Link> fit different operating environments.
+          </p>
         </div>
       </section>
 
@@ -235,12 +244,12 @@ export default function HomePage() {
           <div className="rt-final-cta__card">
             <div className="container rt-final-cta__inner">
               <div>
-                <span className="rt-eyebrow rt-eyebrow--light">Ready to move forward?</span>
-                <h2>Let’s move business forward, together.</h2>
-                <p>Tell us what needs to move and we’ll connect you with the right Rush Track division.</p>
+                <span className="rt-eyebrow rt-eyebrow--light">Start with the requirement</span>
+                <h2>Tell us what needs to move.</h2>
+                <p>We’ll direct the enquiry to the Rush Track team best suited to the job.</p>
               </div>
-              <Link href="/contact" className="btn btn--gold rt-btn-large">
-                Get in Touch <ArrowRight size={18} />
+              <Link href="/contact" className="rt-inline-link rt-inline-link--light">
+                Contact Rush Track <ArrowRight size={16} />
               </Link>
             </div>
           </div>

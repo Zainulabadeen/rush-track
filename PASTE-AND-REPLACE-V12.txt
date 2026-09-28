@@ -1,0 +1,11 @@
+Rush Track V12 paste-and-replace update
+
+1. Extract this ZIP.
+2. Copy everything inside into your existing Rush Track project folder.
+3. Choose Replace files in the destination when Windows asks.
+4. No npm install is required for this update because no dependency was added.
+5. Run npm run dev, then hard refresh the browser with Ctrl + F5.
+6. After testing, push with:
+   git add .
+   git commit -m "Refine buttons and RT Movers quote flow"
+   git push

@@ -1,0 +1,9 @@
+Rush Track V13
+- Re-applies the V12 button/quote changes so they are definitely included in the paste-and-replace package.
+- Removes unnecessary PageHero CTA buttons; contextual internal links remain in page copy.
+- Keeps true action buttons (header Get in Touch + RT Movers quote submit) in one consistent yellow CTA style.
+- Constrains homepage/page backgrounds, fleet band, CTA band and footer to one centered corporate frame on ultrawide screens.
+- The frame follows the same visual rails as the header content instead of letting imagery bleed far beyond it.
+- Below tablet widths, sections return to natural edge-to-edge responsive behavior.
+- Re-includes the high-resolution RT Movers uniform image.
+- Fixes the CSS autoprefixer warning for align-items:end in section-topline.

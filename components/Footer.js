@@ -5,13 +5,10 @@ import { site } from "@/data/site";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer__grid">
+      <div className="container footer__grid footer__grid--clean">
         <div className="footer__brand">
           <img src="/images/rush-track-logo-crop.png" alt="Rush Track Transport LLC" />
-          <p>
-            Corporate transport, logistics and relocation solutions connecting people,
-            businesses and communities across the UAE.
-          </p>
+          <p>Transport, moving and fleet services connected under one UAE corporate group.</p>
           <a className="footer__external" href={site.rtMoversUrl} target="_blank" rel="noreferrer">
             RT Movers UAE <ArrowUpRight size={16} />
           </a>
@@ -24,17 +21,16 @@ export default function Footer() {
             <Link href="/divisions">Our Divisions</Link>
             <Link href="/industries">Industries</Link>
             <Link href="/fleet">Fleet</Link>
-            <Link href="/sustainability">Sustainability</Link>
+            <Link href="/contact">Contact</Link>
           </div>
         </div>
 
         <div>
-          <h4>Explore</h4>
+          <h4>Divisions</h4>
           <div className="footer__links">
-            <Link href="/news">News</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/contact?topic=careers">Careers</Link>
-            <Link href="/contact?topic=partnership">Partner With Us</Link>
+            <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">RT Movers</a>
+            <Link href="/divisions/transport-logistics">Transport & Logistics</Link>
+            <Link href="/divisions/fleet-services">Fleet Services</Link>
           </div>
         </div>
 
@@ -49,7 +45,7 @@ export default function Footer() {
       </div>
       <div className="container footer__bottom">
         <span>© {new Date().getFullYear()} Rush Track Transport LLC. All rights reserved.</span>
-        <span>Dubai, United Arab Emirates</span>
+        <span>Moving possibilities forward.</span>
       </div>
     </footer>
   );

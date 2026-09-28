@@ -1,53 +1,71 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { site } from "@/data/site";
+
+const moveTypes = [
+  "Home Relocation",
+  "Apartment Move",
+  "Villa Move",
+  "Office Relocation",
+  "Furniture Moving",
+  "Packing & Unpacking",
+  "Storage Services",
+];
 
 export default function ContactForm() {
   const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  async function submit(e) {
+  function submit(e) {
     e.preventDefault();
-    setLoading(true);
-    setStatus("");
     const form = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(form.entries());
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("Request failed");
-      e.currentTarget.reset();
-      setStatus("Thank you. Your enquiry has been captured in the local prototype.");
-    } catch {
-      setStatus("Something went wrong. Please email info@rushtrack.ae instead.");
-    } finally {
-      setLoading(false);
-    }
+    const data = Object.fromEntries(form.entries());
+    const message = [
+      "Hello RT Movers UAE, I would like a moving quote.",
+      `Name: ${data.name || "-"}`,
+      `Phone: ${data.phone || "-"}`,
+      `Moving From: ${data.movingFrom || "-"}`,
+      `Moving To: ${data.movingTo || "-"}`,
+      `Move Type: ${data.moveType || "-"}`,
+      `Preferred Date: ${data.preferredDate || "-"}`,
+      data.message ? `Message: ${data.message}` : "",
+    ].filter(Boolean).join("\n");
+
+    const whatsappNumber = site.rtMoversPhone.replace(/\D/g, "");
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    setStatus("Your quote details are ready in WhatsApp. Send the message to RT Movers to continue.");
   }
 
   return (
-    <form className="contact-form" onSubmit={submit}>
-      <div className="form-grid">
-        <label>Full Name<input name="name" required placeholder="Your name" /></label>
-        <label>Company<input name="company" placeholder="Company name" /></label>
-        <label>Email<input type="email" name="email" required placeholder="name@company.com" /></label>
-        <label>Phone<input name="phone" placeholder="+971 ..." /></label>
+    <form className="contact-form quote-form" onSubmit={submit}>
+      <div className="quote-form__heading">
+        <span className="eyebrow">RT Movers UAE</span>
+        <h2>Get your moving quote.</h2>
+        <p>Share the key details of your move. The enquiry opens directly with the RT Movers team on WhatsApp.</p>
       </div>
-      <label>Service
-        <select name="service" defaultValue="Transport & Logistics">
-          <option>Transport & Logistics</option>
-          <option>Moving & Relocation / RT Movers</option>
-          <option>Fleet Services</option>
-          <option>Corporate Partnership</option>
-          <option>Careers</option>
-        </select>
+
+      <div className="form-grid">
+        <label>Your Name<input name="name" required placeholder="Ahmed Ali" /></label>
+        <label>Phone<input name="phone" required placeholder="+971 50 000 0000" /></label>
+        <label>Moving From<input name="movingFrom" required placeholder="e.g. JVC, Dubai" /></label>
+        <label>Moving To<input name="movingTo" required placeholder="e.g. Dubai Marina" /></label>
+        <label>Move Type
+          <select name="moveType" defaultValue="Home Relocation">
+            {moveTypes.map((type) => <option key={type}>{type}</option>)}
+          </select>
+        </label>
+        <label>Preferred Date<input type="date" name="preferredDate" /></label>
+      </div>
+
+      <label>Message <span className="form-optional">(optional)</span>
+        <textarea name="message" rows="5" placeholder="Tell us about your items, floor, parking or access..." />
       </label>
-      <label>Message<textarea name="message" required rows="6" placeholder="Tell us what you need..." /></label>
-      <button className="btn btn--gold" disabled={loading}>{loading ? "Sending..." : <>Send Enquiry <Send size={17} /></>}</button>
+
+      <button className="btn btn--gold" type="submit">
+        Get My Free Quote <ArrowRight size={17} />
+      </button>
+      <p className="quote-form__consent">By continuing, you agree to be contacted by RT Movers UAE.</p>
       {status && <p className="form-status">{status}</p>}
     </form>
   );

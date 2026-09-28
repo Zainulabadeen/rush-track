@@ -1,0 +1,9 @@
+Rush Track V12
+- Standardized real action buttons to the same yellow Get in Touch style.
+- Removed unnecessary PageHero CTAs from About, Our Divisions, Fleet and Industries; existing contextual anchor links remain in content.
+- Service-detail PageHero CTA remains as a real action and now uses the same yellow button style.
+- Reworked the Contact page into an RT Movers moving-quote flow using current RT Movers phone, email and Business Bay address.
+- Quote fields now match the moving intent: name, phone, moving from/to, move type, preferred date and message.
+- Quote submit opens a prefilled WhatsApp enquiry to RT Movers UAE.
+- Preserved contextual internal links for commercial transport, fleet services and corporate email.
+- Replaced the RT Movers uniform image with a sharper wide high-resolution version using the exact supplied RT MOVERS logo composition.

@@ -1,0 +1,9 @@
+Rush Track V14 — CTA button consistency
+
+- All remaining CTA-style links on the homepage now match the yellow Get in Touch button.
+- Header Get in Touch, quote submit, page-hero CTAs, homepage hero/about/fleet/contact CTAs use one visual system.
+- Division-detail final Contact Rush Track CTA now uses the same yellow button.
+- Contextual/internal links inside body copy and cards remain text links, as requested.
+- No content, imagery, layout frame, or RT Movers data changed in this update.
+
+Paste these files into the same existing rush-track-corporate project and replace when asked.
