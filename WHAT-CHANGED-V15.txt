@@ -1,0 +1,9 @@
+V15 layout polish
+- Removed the old boxed-page frame that caused hard left/right cuts on wide screens.
+- Full-width section backgrounds now use one shared centered content rail like the Brat Generator reference behavior.
+- Hero image spans the viewport while text stays aligned to the same content rail.
+- Divisions and Industries use soft gradient transitions so they blend naturally with neighboring white sections.
+- Fleet and bottom CTA are centered rounded cards inside full-width breathing space.
+- Page heroes and inner-page sections follow the same alignment system.
+- Footer background is full-width; logo, columns and contact details are constrained to the shared rail and no longer drift outside.
+- Responsive breakpoints tuned for desktop, tablet and mobile.

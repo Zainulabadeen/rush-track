@@ -2005,3 +2005,323 @@ main > section .rt-final-cta__inner {
     min-height: 50px;
   }
 }
+
+/* =========================================================
+   V15 — fluid shell, blended bands, corrected footer
+   Goal: Brat-style alignment behavior — full-width section
+   backgrounds with one consistent centered content rail.
+   ========================================================= */
+:root {
+  --rt-shell: 1480px;
+  --rt-gutter: clamp(24px, 4.5vw, 86px);
+}
+
+/* One shared alignment rail across header, pages and footer. */
+.container,
+.site-header .container,
+.topbar .container,
+.rt-hero__inner,
+.rt-trust-wrap > .container,
+.page-hero__inner,
+main > section > .container,
+main > section .rt-fleet-copy-wrap,
+main > section .rt-final-cta__inner,
+.footer > .container {
+  width: min(calc(100% - (var(--rt-gutter) * 2)), var(--rt-shell));
+  max-width: var(--rt-shell);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Remove the old boxed-page frame. Background bands now breathe edge-to-edge. */
+main > section,
+.footer {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* HERO — image spans the available viewport; copy stays on the shared rail. */
+.rt-hero {
+  width: 100%;
+  min-height: clamp(610px, 39vw, 720px);
+  border-radius: 0;
+  overflow: hidden;
+  background: #eef4f8;
+}
+.rt-hero__media { inset: 0; }
+.rt-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% center;
+  transform: none;
+}
+.rt-hero__veil {
+  background:
+    linear-gradient(90deg,
+      rgba(255,255,255,.985) 0%,
+      rgba(255,255,255,.965) 22%,
+      rgba(255,255,255,.86) 34%,
+      rgba(255,255,255,.60) 46%,
+      rgba(255,255,255,.26) 58%,
+      rgba(255,255,255,.06) 72%,
+      rgba(255,255,255,0) 84%),
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(4,24,47,.035));
+}
+.rt-hero__inner {
+  padding-top: clamp(72px, 5vw, 94px);
+  padding-bottom: clamp(112px, 7vw, 136px);
+}
+.rt-hero__copy { max-width: 580px; }
+.rt-hero h1 { max-width: 570px; }
+.rt-hero__copy > p { max-width: 550px; }
+
+/* Trust strip remains a floating card, but follows the exact same rail. */
+.rt-trust-wrap { width: 100%; }
+.rt-trust-card {
+  border-radius: 20px;
+  box-shadow: 0 20px 52px rgba(5,28,55,.105);
+}
+
+/* ABOUT — open white space, no artificial boxed background edge. */
+.rt-about-section {
+  width: 100%;
+  background: #fff;
+  padding-top: clamp(132px, 8vw, 168px);
+  padding-bottom: clamp(130px, 8vw, 164px);
+}
+
+/* DIVISIONS — blend gently into the white sections instead of a hard rectangle. */
+.rt-divisions-section {
+  width: 100%;
+  padding-top: clamp(128px, 7vw, 154px);
+  padding-bottom: clamp(128px, 7vw, 154px);
+  border: 0;
+  background:
+    linear-gradient(180deg,
+      #ffffff 0%,
+      #f8fafc 10%,
+      #f3f6fa 28%,
+      #f3f6fa 72%,
+      #f8fafc 90%,
+      #ffffff 100%);
+}
+.rt-division-grid { gap: clamp(18px, 1.6vw, 28px); }
+.rt-division-card {
+  border-radius: 20px;
+  box-shadow: 0 16px 42px rgba(5,28,55,.07);
+}
+
+/* FLEET — section itself is full width; the cinematic panel reads as a card. */
+.rt-fleet-section {
+  width: 100%;
+  padding: clamp(96px, 6vw, 124px) 0;
+  background: #fff;
+  overflow: visible;
+}
+.rt-fleet-banner {
+  width: min(calc(100% - (var(--rt-gutter) * 2)), var(--rt-shell));
+  max-width: var(--rt-shell);
+  margin: 0 auto;
+  min-height: clamp(430px, 30vw, 520px);
+  border-radius: 28px;
+  box-shadow: 0 24px 62px rgba(5,28,55,.13);
+}
+.rt-fleet-copy-wrap {
+  width: min(calc(100% - 72px), 1320px) !important;
+}
+.rt-fleet-copy { padding-left: 0; }
+
+/* INDUSTRIES — soft transition, not a sharp boxed slab. */
+.rt-industries-section {
+  width: 100%;
+  border: 0;
+  background:
+    linear-gradient(180deg,
+      #ffffff 0%,
+      #f9fbfd 14%,
+      #f6f9fc 50%,
+      #f9fbfd 86%,
+      #ffffff 100%);
+}
+
+/* Bottom CTA — contained card, surrounded by normal page breathing room. */
+.rt-final-cta {
+  width: 100%;
+  padding: 12px 0 clamp(96px, 6vw, 118px);
+  background: #fff;
+  overflow: visible;
+}
+.rt-final-cta__card {
+  width: min(calc(100% - (var(--rt-gutter) * 2)), var(--rt-shell));
+  max-width: var(--rt-shell);
+  margin: 0 auto;
+  min-height: clamp(240px, 18vw, 300px);
+  padding: 0;
+  border-radius: 26px;
+  box-shadow: 0 22px 55px rgba(5,28,55,.12);
+}
+.rt-final-cta__inner {
+  min-height: inherit;
+  width: min(calc(100% - 80px), 1320px) !important;
+  gap: clamp(28px, 5vw, 70px);
+}
+
+/* Generic inner pages use full-width background bands and the same rail. */
+.page-hero {
+  width: 100%;
+  max-width: none;
+  min-height: clamp(430px, 31vw, 560px);
+  border-radius: 0;
+  background-size: cover;
+  background-position: center center;
+}
+.section,
+.section--white,
+.section--soft,
+.section--navy,
+.final-cta {
+  width: 100%;
+  max-width: none;
+}
+
+/* FOOTER — background full width; everything aligns safely inside one rail. */
+.footer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(70px, 6vw, 92px) 0 28px;
+  background: #04182f;
+  overflow: hidden;
+}
+.footer__grid,
+.footer__grid--clean {
+  width: 100%;
+  grid-template-columns: minmax(280px, 1.35fr) minmax(150px, .72fr) minmax(190px, .92fr) minmax(235px, 1.05fr);
+  gap: clamp(36px, 4vw, 72px);
+  align-items: start;
+}
+.footer__brand { min-width: 0; }
+.footer__brand img {
+  width: min(265px, 100%);
+  height: auto;
+  margin: 0 0 18px;
+  padding: 7px 10px;
+  border-radius: 12px;
+  background: #fff;
+}
+.footer__brand p {
+  max-width: 390px;
+  margin: 0 0 14px;
+  line-height: 1.72;
+}
+.footer h4 { margin-bottom: 20px; }
+.footer__links { gap: 11px; }
+.footer__contact {
+  width: 100%;
+  gap: 14px;
+}
+.footer__contact > * {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.footer__contact svg { margin-top: 1px; }
+.footer__bottom {
+  width: 100%;
+  margin-top: clamp(42px, 5vw, 64px);
+  padding-top: 22px;
+}
+
+/* Desktop refinement for very wide screens. */
+@media (min-width: 1800px) {
+  .rt-hero__media img { object-position: 60% center; }
+  .rt-hero h1 { font-size: 70px; }
+  .rt-division-card__media { height: 300px; }
+}
+
+/* Mid-size: keep hierarchy but reduce gutters and grid pressure. */
+@media (max-width: 1180px) {
+  :root { --rt-gutter: 28px; }
+  .rt-hero__media img { object-position: 65% center; }
+  .rt-about-grid { gap: 52px; }
+  .rt-section-head { gap: 42px; }
+  .rt-industry-grid { grid-template-columns: repeat(5, 1fr); }
+  .footer__grid,
+  .footer__grid--clean { grid-template-columns: 1.2fr .8fr .9fr; }
+  .footer__grid--clean > :last-child { grid-column: 2 / span 2; }
+}
+
+@media (max-width: 900px) {
+  :root { --rt-gutter: 22px; }
+  .rt-hero { min-height: 720px; }
+  .rt-hero__media img { object-position: 72% center; }
+  .rt-hero__veil {
+    background:
+      linear-gradient(180deg,
+        rgba(255,255,255,.99) 0%,
+        rgba(255,255,255,.97) 34%,
+        rgba(255,255,255,.78) 54%,
+        rgba(255,255,255,.28) 74%,
+        rgba(255,255,255,.04) 92%),
+      linear-gradient(90deg, rgba(255,255,255,.55), rgba(255,255,255,.06));
+  }
+  .rt-about-grid,
+  .rt-section-head { grid-template-columns: 1fr; }
+  .rt-section-head > p { justify-self: start; max-width: 620px; }
+  .rt-division-grid { grid-template-columns: 1fr; }
+  .rt-division-card { display: grid; grid-template-columns: minmax(260px, .9fr) 1.1fr; }
+  .rt-division-card__media { height: 100%; min-height: 320px; }
+  .rt-division-card__body { padding: 44px 30px 30px; }
+  .rt-fleet-banner,
+  .rt-final-cta__card { border-radius: 22px; }
+  .rt-fleet-copy-wrap,
+  .rt-final-cta__inner { width: min(calc(100% - 44px), 1320px) !important; }
+  .rt-industry-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer__grid,
+  .footer__grid--clean { grid-template-columns: 1fr 1fr; }
+  .footer__grid--clean > :last-child { grid-column: auto; }
+}
+
+@media (max-width: 640px) {
+  :root { --rt-gutter: 14px; }
+  .container,
+  .site-header .container,
+  .topbar .container,
+  .rt-hero__inner,
+  .rt-trust-wrap > .container,
+  .page-hero__inner,
+  main > section > .container,
+  main > section .rt-fleet-copy-wrap,
+  main > section .rt-final-cta__inner,
+  .footer > .container {
+    width: calc(100% - 28px);
+  }
+  .rt-hero { min-height: 710px; }
+  .rt-hero__inner { padding-top: 48px; padding-bottom: 248px; }
+  .rt-hero__media img { object-position: 76% center; }
+  .rt-divisions-section,
+  .rt-about-section { padding-top: 92px; padding-bottom: 96px; }
+  .rt-division-card { display: block; }
+  .rt-division-card__media { min-height: 255px; height: 255px; }
+  .rt-fleet-section { padding: 76px 0; }
+  .rt-fleet-banner,
+  .rt-final-cta__card { width: calc(100% - 28px); border-radius: 18px; }
+  .rt-fleet-copy-wrap,
+  .rt-final-cta__inner { width: calc(100% - 36px) !important; }
+  .rt-fleet-copy { padding: 42px 0; }
+  .rt-final-cta__inner { padding: 34px 0; }
+  .rt-industry-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer { padding-top: 62px; }
+  .footer__grid,
+  .footer__grid--clean { grid-template-columns: 1fr; gap: 36px; }
+  .footer__brand img { width: 230px; }
+  .footer__bottom { display: grid; gap: 8px; }
+}
