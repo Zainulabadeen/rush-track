@@ -2325,3 +2325,327 @@ main > section,
   .footer__brand img { width: 230px; }
   .footer__bottom { display: grid; gap: 8px; }
 }
+
+/* =========================================================
+   V16 — Brat-style responsive rails + full panoramic hero
+   One fluid content rail, edge-to-edge bands, stable zoom behavior.
+   ========================================================= */
+:root {
+  --rt-shell: 1540px;
+  --rt-gutter: clamp(18px, 2.4vw, 46px);
+}
+
+/* Match the reference site's visual rhythm: header/footer and every section
+   share one fluid rail that gets close to the viewport edges on desktop. */
+.container,
+.site-header .container,
+.topbar .container,
+.rt-hero__inner,
+.rt-trust-wrap > .container,
+.page-hero__inner,
+main > section > .container,
+main > section .rt-fleet-copy-wrap,
+main > section .rt-final-cta__inner,
+.footer > .container {
+  width: min(calc(100% - (var(--rt-gutter) * 2)), var(--rt-shell));
+  max-width: var(--rt-shell);
+  margin-inline: auto;
+}
+
+.site-header .header__inner {
+  min-height: 84px;
+}
+
+/* Panoramic source image is 3:1. Keeping the hero at the same ratio means the
+   full artwork stays visible at 100%, 90%, 75%, 50% browser zoom, etc. */
+@media (min-width: 1051px) {
+  .rt-hero {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 3 / 1;
+    max-height: none;
+  }
+
+  .rt-hero__media,
+  .rt-hero__media img {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .rt-hero__media img {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .rt-hero__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: clamp(28px, 2.7vw, 48px);
+    padding-bottom: clamp(44px, 3.2vw, 64px);
+  }
+
+  .rt-hero__copy {
+    max-width: min(36vw, 560px);
+  }
+
+  .rt-hero h1 {
+    max-width: 560px;
+    font-size: clamp(44px, 3.55vw, 66px);
+    line-height: .98;
+  }
+
+  .rt-hero__copy > p {
+    max-width: 540px;
+    margin-top: clamp(16px, 1.35vw, 24px);
+    font-size: clamp(14px, .95vw, 16px);
+    line-height: 1.58;
+  }
+
+  .rt-hero__copy > .rt-inline-link {
+    margin-top: clamp(20px, 1.7vw, 28px);
+  }
+
+  .rt-hero__veil {
+    background:
+      linear-gradient(90deg,
+        rgba(255,255,255,.99) 0%,
+        rgba(255,255,255,.965) 20%,
+        rgba(255,255,255,.84) 33%,
+        rgba(255,255,255,.53) 45%,
+        rgba(255,255,255,.18) 57%,
+        rgba(255,255,255,.025) 69%,
+        rgba(255,255,255,0) 78%);
+  }
+}
+
+/* Full-width cinematic bands with copy locked to the same header rail. */
+.rt-fleet-section {
+  padding: clamp(84px, 5.5vw, 118px) 0;
+}
+.rt-fleet-banner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: clamp(390px, 27vw, 510px);
+}
+.rt-fleet-copy-wrap {
+  width: min(calc(100% - (var(--rt-gutter) * 2)), var(--rt-shell)) !important;
+  max-width: var(--rt-shell);
+}
+
+.rt-final-cta {
+  padding: 0;
+}
+.rt-final-cta__card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: clamp(260px, 18vw, 330px);
+}
+.rt-final-cta__inner {
+  width: min(calc(100% - (var(--rt-gutter) * 2)), var(--rt-shell)) !important;
+  max-width: var(--rt-shell);
+}
+
+/* Inner page photography behaves like the full-width reference hero bands. */
+.page-hero {
+  width: 100%;
+  max-width: none;
+  border-radius: 0;
+}
+
+/* Footer stays edge-to-edge while its actual content remains on the same rail. */
+.footer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Make the updated long Business Bay address breathe rather than compress. */
+.footer__grid,
+.footer__grid--clean {
+  grid-template-columns: minmax(270px, 1.25fr) minmax(140px, .68fr) minmax(180px, .82fr) minmax(290px, 1.2fr);
+}
+.footer__contact > * {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Small visual polish for the quote submit state. */
+.contact-form button:disabled {
+  opacity: .68;
+  cursor: wait;
+  transform: none;
+}
+
+@media (max-width: 1180px) {
+  :root { --rt-gutter: 24px; }
+  .footer__grid,
+  .footer__grid--clean {
+    grid-template-columns: 1.15fr .8fr .9fr;
+  }
+  .footer__grid--clean > :last-child { grid-column: 2 / span 2; }
+}
+
+@media (max-width: 1050px) {
+  .rt-hero {
+    aspect-ratio: auto;
+    min-height: 650px;
+  }
+  .rt-hero__media img { object-position: 67% center; }
+}
+
+@media (max-width: 900px) {
+  :root { --rt-gutter: 20px; }
+  .site-header .header__inner { min-height: 74px; }
+  .rt-fleet-banner,
+  .rt-final-cta__card { border-radius: 0; }
+  .footer__grid,
+  .footer__grid--clean { grid-template-columns: 1fr 1fr; }
+  .footer__grid--clean > :last-child { grid-column: auto; }
+}
+
+@media (max-width: 640px) {
+  :root { --rt-gutter: 14px; }
+  .rt-hero { min-height: 700px; }
+  .rt-fleet-section { padding: 70px 0; }
+  .rt-fleet-banner,
+  .rt-final-cta__card { width: 100%; }
+  .rt-fleet-copy-wrap,
+  .rt-final-cta__inner { width: calc(100% - 28px) !important; }
+  .footer__grid,
+  .footer__grid--clean { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   V17 — cinematic sections follow the exact header rail
+   Desktop panels now run from the logo-side rail to the CTA-side rail,
+   while keeping the approved contained-card look from the earlier design.
+   ========================================================= */
+
+/* Use one rail calculation everywhere that must line up with the header. */
+:root {
+  --rt-section-rail: min(calc(100% - (var(--rt-gutter) * 2)), var(--rt-shell));
+}
+
+/* Inner-page hero bands are no longer viewport-wide. They sit on the same
+   left/right rail as the logo and Get in Touch button. */
+.page-hero {
+  width: var(--rt-section-rail);
+  max-width: var(--rt-shell);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: clamp(34px, 3.2vw, 58px);
+  margin-bottom: clamp(70px, 5.6vw, 104px);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 22px 58px rgba(5, 28, 55, .12);
+}
+
+/* Home/fleet cinematic bands use the exact same rail. */
+.rt-fleet-banner,
+.rt-final-cta__card {
+  width: var(--rt-section-rail);
+  max-width: var(--rt-shell);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 22px 58px rgba(5, 28, 55, .12);
+}
+
+/* Preserve the original visual treatment and breathing room around those
+   panels rather than turning the section itself into a giant full-width slab. */
+.rt-fleet-section {
+  width: 100%;
+  padding: clamp(86px, 5.8vw, 118px) 0;
+  background: #fff;
+}
+
+.rt-final-cta {
+  width: 100%;
+  padding: clamp(18px, 2vw, 30px) 0 clamp(92px, 6vw, 118px);
+  background: #fff;
+}
+
+/* Copy inside the cinematic cards aligns with the header/content rail but
+   keeps a comfortable inset so it does not hug the rounded edge. */
+.rt-fleet-copy-wrap,
+.rt-final-cta__inner,
+.page-hero__inner {
+  width: min(calc(100% - 72px), 1320px) !important;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Keep normal content sections on the same global rail without forcing their
+   soft background colour to become a narrow box. */
+.rt-industries-section > .container,
+.rt-divisions-section > .container,
+.rt-about-section > .container,
+.section > .container {
+  width: var(--rt-section-rail);
+  max-width: var(--rt-shell);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* At very large browser widths the panel width still mirrors the header rail,
+   so zooming out creates equal white breathing room rather than a viewport-wide
+   image band. */
+@media (min-width: 1600px) {
+  .page-hero,
+  .rt-fleet-banner,
+  .rt-final-cta__card {
+    width: var(--rt-section-rail);
+  }
+}
+
+/* Tablet: keep the same relationship to the header, with softer corners. */
+@media (max-width: 900px) {
+  .page-hero,
+  .rt-fleet-banner,
+  .rt-final-cta__card {
+    width: calc(100% - 40px);
+    border-radius: 22px;
+  }
+
+  .page-hero {
+    margin-top: 24px;
+    margin-bottom: 70px;
+  }
+
+  .rt-fleet-copy-wrap,
+  .rt-final-cta__inner,
+  .page-hero__inner {
+    width: calc(100% - 44px) !important;
+  }
+}
+
+/* Mobile: nearly edge-to-edge, still visibly contained and naturally aligned. */
+@media (max-width: 640px) {
+  .page-hero,
+  .rt-fleet-banner,
+  .rt-final-cta__card {
+    width: calc(100% - 28px);
+    border-radius: 18px;
+  }
+
+  .page-hero {
+    margin-top: 18px;
+    margin-bottom: 58px;
+  }
+
+  .rt-fleet-copy-wrap,
+  .rt-final-cta__inner,
+  .page-hero__inner {
+    width: calc(100% - 34px) !important;
+  }
+}

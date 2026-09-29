@@ -42,7 +42,7 @@ export default function ContactPage() {
               </div>
 
               <p className="page-copy-links quote-contact-note">
-                Need something other than a move? Read about our <Link href="/divisions/transport-logistics">commercial transport and logistics</Link> or <Link href="/divisions/fleet-services">fleet services</Link>. Corporate enquiries can also be sent to <a href={`mailto:${site.email}`}>{site.email}</a>.
+                Need something other than a move? Read about our <Link href="/divisions/transport-logistics">commercial transport and logistics</Link> or <Link href="/divisions/fleet-services">fleet services</Link>. For a direct moving enquiry, email <a href={`mailto:${site.rtMoversEmail}`}>{site.rtMoversEmail}</a>.
               </p>
             </div>
           </Reveal>

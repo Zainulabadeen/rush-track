@@ -1,0 +1,11 @@
+RUSH TRACK V17 — HEADER-RAIL SECTION ALIGNMENT
+
+This update changes only layout/alignment styling.
+
+- Inner-page hero image bands now align from the same left rail as the Rush Track logo to the same right rail as the Get in Touch button.
+- Fleet cinematic banner now uses that same header width instead of stretching to the viewport edges.
+- Bottom contact CTA banner now uses that same header width.
+- Rounded-card treatment, shadows and existing section design are preserved.
+- About, Divisions, Industries and normal page content keep the same global alignment rail.
+- Tablet/mobile versions remain responsive and use smaller side gutters.
+- No content, images, links, contact details, quote logic or package versions were changed.

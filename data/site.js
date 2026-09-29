@@ -1,13 +1,13 @@
 export const site = {
   name: "Rush Track Transport LLC",
   shortName: "Rush Track",
-  phone: "+971 50 123 4567",
-  email: "info@rushtrack.ae",
-  location: "Dubai, UAE",
+  phone: "+971 50 235 9100",
+  email: "info@rtmovers.ae",
+  location: "Citadel Tower, Business Bay, Dubai, UAE",
   rtMoversUrl: "https://rtmovers.ae/",
   rtMoversPhone: "+971 50 235 9100",
   rtMoversEmail: "info@rtmovers.ae",
-  rtMoversAddress: "Citadel Tower, Business Bay, Dubai",
+  rtMoversAddress: "Citadel Tower, Business Bay, Dubai, UAE",
 };
 
 export const images = {

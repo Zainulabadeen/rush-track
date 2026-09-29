@@ -1,0 +1,10 @@
+Rush Track V16
+- Updated global phone/email/address from RT Movers public site:
+  +971 50 235 9100
+  info@rtmovers.ae
+  Citadel Tower, Business Bay, Dubai, UAE
+- Quote form now emails the RT Movers contact inbox via FormSubmit AJAX.
+- Reworked the desktop hero around the source image's native 3:1 ratio so the complete hero composition remains visible at different browser zoom levels.
+- Header, page sections and footer now use one fluid Brat-style alignment rail with smaller desktop gutters.
+- Fleet and bottom CTA image bands restored to edge-to-edge backgrounds while their content stays aligned to the header rail.
+- Kept mobile/tablet responsive fallbacks.
