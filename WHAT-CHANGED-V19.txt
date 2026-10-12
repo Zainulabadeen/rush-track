@@ -1,0 +1,32 @@
+RUSH TRACK V19 — BRAND + ON-PAGE SEO + TECHNICAL SEO
+
+Brand
+- Restores a horizontal corporate logo layout.
+- Uses the supplied truck/house icon on the left and only the text "RUSH TRACK".
+- Removes "TRANSPORT LLC" and the old tagline from the site logo asset.
+- Refreshes favicon/app icons from the supplied icon.
+- Shifts UI accents toward the approved yellow/gold palette while retaining navy.
+- Updates core Rush Track vehicle imagery used by the hero, transport, fleet and supporting sections.
+- RT Movers branding remains RT Movers branding on the moving division.
+
+On-page SEO
+- Unique title + meta description for all core indexable pages.
+- Canonical URLs on core pages.
+- Stronger contextual internal linking between Home, About, Divisions, Transport, Fleet, Industries, Sustainability and Contact.
+- Natural descriptive anchor text instead of adding unnecessary buttons.
+- Improved image alt text and heading intent on core pages.
+- Open Graph + Twitter metadata.
+- Thin static News page set to noindex until real news content is published.
+
+Technical SEO
+- Dynamic sitemap.xml.
+- Dynamic robots.txt.
+- Web app manifest.
+- Organization + WebSite structured data.
+- Service structured data on Transport & Logistics and Fleet Services pages.
+- 404 page with noindex.
+- High-priority loading for hero images and lazy loading for below-fold images.
+- Security/referrer headers and powered-by header disabled.
+- Canonical/base URL supports NEXT_PUBLIC_SITE_URL for the final custom domain.
+
+No new npm dependency is required.

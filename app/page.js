@@ -18,6 +18,13 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { divisions, images, industries, site } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Transport, Logistics & Fleet Services UAE",
+  description: "Rush Track connects commercial transport, logistics, RT Movers relocation and fleet support for businesses and communities across Dubai and the UAE.",
+  path: "/",
+});
 
 const industryIcons = [
   Building2,
@@ -44,7 +51,7 @@ export default function HomePage() {
     <>
       <section className="rt-hero">
         <div className="rt-hero__media" aria-hidden="true">
-          <img src={images.hero} alt="" />
+          <img src={images.hero} alt="" aria-hidden="true" width="2172" height="724" loading="eager" fetchPriority="high" decoding="async" />
         </div>
         <div className="rt-hero__veil" aria-hidden="true" />
 
@@ -56,8 +63,9 @@ export default function HomePage() {
                 Reliable transport for <span>a stronger UAE.</span>
               </h1>
               <p>
-                Rush Track connects commercial transport, moving and fleet support under one corporate group,
-                giving businesses and communities a clearer way to keep people and goods moving.
+                Rush Track connects <Link href="/divisions/transport-logistics">commercial transport and logistics</Link>,
+                <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">moving and relocation through RT Movers</a>,
+                and <Link href="/divisions/fleet-services">fleet support</Link> under one corporate group, giving businesses and communities a clearer way to keep people and goods moving.
               </p>
               <Link href="/divisions" className="rt-inline-link rt-inline-link--hero">
                 Explore our divisions <ArrowRight size={17} />
@@ -89,7 +97,7 @@ export default function HomePage() {
         <div className="container rt-about-grid">
           <Reveal>
             <div className="rt-about-media">
-              <img src={images.office} alt="Rush Track transport operations in the UAE" />
+              <img src={images.office} alt="Rush Track transport operations in the UAE" width="1448" height="1086" loading="lazy" decoding="async" />
               <div className="rt-about-badge">
                 <span>Built in the UAE</span>
                 <strong>Connected by one standard</strong>
@@ -103,7 +111,7 @@ export default function HomePage() {
               <h2>One group. Three focused transport services.</h2>
               <p>
                 Rush Track brings together <Link href="/divisions/transport-logistics">transport and logistics</Link>,
-                dedicated <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">moving and relocation through RT Movers</a>,
+                dedicated <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">moving and relocation through RT Movers</a>,
                 and <Link href="/divisions/fleet-services">fleet services</Link>. Each team keeps its specialist focus while sharing the same approach to reliability and clear communication.
               </p>
 
@@ -149,10 +157,10 @@ export default function HomePage() {
               <Reveal key={item.slug} delay={index * 70}>
                 <article className="rt-division-card">
                   <div className="rt-division-card__media">
-                    <img src={item.image} alt={item.title} />
+                    <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                     {item.external && (
                       <div className="rt-division-brand-badge">
-                        <img src={images.rtMoversLogo} alt="RT Movers" />
+                        <img src={images.rtMoversLogo} alt="RT Movers" loading="lazy" decoding="async" />
                       </div>
                     )}
                   </div>
@@ -162,14 +170,14 @@ export default function HomePage() {
                     <span>{item.eyebrow}</span>
                     <h3>
                       {item.external ? (
-                        <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">{item.title}</a>
+                        <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">{item.title}</a>
                       ) : (
                         <Link href={`/divisions/${item.slug}`}>{item.title}</Link>
                       )}
                     </h3>
                     <p>{item.description}</p>
                     {item.external ? (
-                      <a href={site.rtMoversUrl} target="_blank" rel="noreferrer" className="rt-card-link">
+                      <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer" className="rt-card-link">
                         Visit RT Movers UAE <ArrowRight size={16} />
                       </a>
                     ) : (
@@ -188,7 +196,7 @@ export default function HomePage() {
       <section className="rt-fleet-section">
         <Reveal>
           <div className="rt-fleet-banner">
-            <img src={images.fleet} alt="Rush Track fleet operating across the UAE" />
+            <img src={images.fleet} alt="Rush Track fleet operating across the UAE" width="2172" height="724" loading="lazy" decoding="async" />
             <div className="rt-fleet-overlay" />
             <div className="container rt-fleet-copy-wrap">
               <div className="rt-fleet-copy">

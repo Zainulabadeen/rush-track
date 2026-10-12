@@ -1,0 +1,7 @@
+Rush Track V18 — exact uploaded logo update
+
+- Replaced the Rush Track UI logo asset with the exact logo supplied by the user.
+- The same asset now updates Header, mobile menu and Footer automatically.
+- Updated favicon/browser-tab icons from the same exact logo artwork.
+- Added a cache-busted favicon path (v18) so browsers do not keep showing the old icon.
+- Kept the existing V17 layout/alignment; only tuned logo display sizing for desktop/mobile/footer.

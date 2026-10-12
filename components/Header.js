@@ -43,7 +43,7 @@ export default function Header() {
       <header className="site-header">
         <div className="container header__inner">
           <Link href="/" className="brand" aria-label="Rush Track home">
-            <img src="/images/rush-track-logo-crop.png" alt="Rush Track Transport LLC" />
+            <img src="/images/rush-track-logo-crop.png" alt="Rush Track" width="1769" height="278" />
           </Link>
 
           <nav className="desktop-nav" aria-label="Main navigation">
@@ -70,14 +70,14 @@ export default function Header() {
 
       <div className={`mobile-panel ${open ? "open" : ""}`}>
         <div className="mobile-panel__head">
-          <img src="/images/rush-track-logo-crop.png" alt="Rush Track" />
+          <img src="/images/rush-track-logo-crop.png" alt="Rush Track" width="1769" height="278" />
           <button onClick={() => setOpen(false)} aria-label="Close menu"><X /></button>
         </div>
         <nav>
           {nav.map(([label, href]) => (
             <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>
           ))}
-          <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">
+          <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">
             Visit RT Movers <ArrowUpRight size={16} />
           </a>
         </nav>

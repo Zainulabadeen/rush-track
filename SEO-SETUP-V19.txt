@@ -1,0 +1,23 @@
+IMPORTANT AFTER YOUR FINAL DOMAIN IS CONNECTED
+
+In Vercel:
+Project -> Settings -> Environment Variables
+
+Add:
+NEXT_PUBLIC_SITE_URL
+
+Value example:
+https://your-final-domain.com
+
+Use your real Rush Track domain, with https:// and no trailing slash.
+Then Redeploy.
+
+Why:
+This makes canonical URLs, sitemap.xml, robots.txt, Open Graph URLs and structured-data URLs use the final domain instead of the temporary Vercel address.
+
+After deploy verify:
+/robots.txt
+/sitemap.xml
+/manifest.webmanifest
+
+Then submit the final-domain sitemap in Google Search Console.

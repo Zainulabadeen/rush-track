@@ -1,0 +1,15 @@
+1. Extract this ZIP.
+2. Copy all folders/files into your EXISTING rush-track-corporate project folder.
+3. Choose "Replace files in the destination" when Windows asks.
+4. Stop the running dev server with Ctrl+C.
+5. Optional but recommended in PowerShell:
+   if (Test-Path .next) { Remove-Item -Recurse -Force .next }
+6. Run:
+   npm run dev
+7. Open the port shown by Next.js (your project is currently configured for localhost:3001).
+8. Hard refresh with Ctrl+F5.
+
+Git push after checking localhost:
+git add .
+git commit -m "Refresh Rush Track brand and complete SEO setup"
+git push

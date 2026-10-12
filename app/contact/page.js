@@ -5,7 +5,13 @@ import Reveal from "@/components/Reveal";
 import ContactForm from "./ContactForm";
 import { images, site } from "@/data/site";
 
-export const metadata = { title: "Moving Quote & Contact" };
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "RT Movers Quote & Rush Track Contact",
+  description: "Request a moving quote from RT Movers UAE or connect with Rush Track for transport, logistics and fleet requirements across Dubai and the UAE.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
@@ -32,7 +38,7 @@ export default function ContactPage() {
                 <a href={`tel:${site.rtMoversPhone.replace(/\s/g, "")}`}>
                   <Phone /><span>Call RT Movers<strong>{site.rtMoversPhone}</strong></span>
                 </a>
-                <a href={`https://wa.me/${site.rtMoversPhone.replace(/\D/g, "")}`} target="_blank" rel="noreferrer">
+                <a href={`https://wa.me/${site.rtMoversPhone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">
                   <MessageCircle /><span>WhatsApp<strong>Instant moving enquiry</strong></span>
                 </a>
                 <a href={`mailto:${site.rtMoversEmail}`}>

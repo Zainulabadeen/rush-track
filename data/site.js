@@ -1,13 +1,16 @@
 export const site = {
   name: "Rush Track Transport LLC",
   shortName: "Rush Track",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://rush-track.vercel.app",
   phone: "+971 50 235 9100",
   email: "info@rtmovers.ae",
   location: "Citadel Tower, Business Bay, Dubai, UAE",
+  country: "AE",
   rtMoversUrl: "https://rtmovers.ae/",
   rtMoversPhone: "+971 50 235 9100",
   rtMoversEmail: "info@rtmovers.ae",
   rtMoversAddress: "Citadel Tower, Business Bay, Dubai, UAE",
+  logo: "/images/rush-track-logo-crop.png",
 };
 
 export const images = {
@@ -20,6 +23,7 @@ export const images = {
   rtMoversLogo: "/images/rt-movers-logo.png",
   dubaiRoad: "/images/rt-hero-generated.webp",
   port: "/images/rt-transport-generated.webp",
+  warehouse: "/images/rt-transport-generated.webp",
 };
 
 export const divisions = [

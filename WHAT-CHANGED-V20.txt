@@ -1,0 +1,12 @@
+Rush Track V20 — Corporate Image Refresh
+
+- Rebuilt and replaced the main Rush Track visual set with consistent corporate photography.
+- Hero: clean Rush Track convoy in Dubai with correctly proportioned branding.
+- About: new Rush Track headquarters/fleet image with consistent logo placement.
+- Transport & Logistics: new branded Dubai highway transport visual.
+- Fleet Services: new branded workshop/maintenance visual.
+- Fleet banner: new cinematic Dubai fleet image with clean left-side copy space.
+- Final CTA: dedicated cinematic branded image instead of reusing the hero artwork.
+- Updated OG/social preview image to match the refreshed brand photography.
+- Kept the dedicated RT Movers division image/logo unchanged so its exact RT Movers identity is preserved.
+- No package/dependency changes.

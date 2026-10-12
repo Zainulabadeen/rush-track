@@ -7,9 +7,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__grid footer__grid--clean">
         <div className="footer__brand">
-          <img src="/images/rush-track-logo-crop.png" alt="Rush Track Transport LLC" />
+          <img src="/images/rush-track-logo-crop.png" alt="Rush Track" width="1769" height="278" />
           <p>Transport, moving and fleet services connected under one UAE corporate group.</p>
-          <a className="footer__external" href={site.rtMoversUrl} target="_blank" rel="noreferrer">
+          <a className="footer__external" href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">
             RT Movers UAE <ArrowUpRight size={16} />
           </a>
         </div>
@@ -28,7 +28,7 @@ export default function Footer() {
         <div>
           <h4>Divisions</h4>
           <div className="footer__links">
-            <a href={site.rtMoversUrl} target="_blank" rel="noreferrer">RT Movers</a>
+            <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">RT Movers</a>
             <Link href="/divisions/transport-logistics">Transport & Logistics</Link>
             <Link href="/divisions/fleet-services">Fleet Services</Link>
           </div>
