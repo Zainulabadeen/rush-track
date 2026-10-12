@@ -4,14 +4,12 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { site } from "@/data/site";
 
-const moveTypes = [
-  "Home Relocation",
-  "Apartment Move",
-  "Villa Move",
-  "Office Relocation",
-  "Furniture Moving",
-  "Packing & Unpacking",
-  "Storage Services",
+const services = [
+  "Transport & Logistics",
+  "Fleet Services",
+  "Moving & Relocation (RT Movers)",
+  "Business Partnership",
+  "General Enquiry",
 ];
 
 export default function ContactForm() {
@@ -27,24 +25,26 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const payload = new FormData(form);
-    payload.append("_subject", "New moving quote enquiry from Rush Track website");
+    payload.append("_subject", "New Rush Track website enquiry");
     payload.append("_template", "table");
     payload.append("_captcha", "false");
-    payload.append("Source", "Rush Track Transport LLC — Moving Quote page");
+    payload.append("Source", "Rush Track Transport LLC — Contact page");
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${site.rtMoversEmail}`, {
+      const response = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
         method: "POST",
         headers: { Accept: "application/json" },
         body: payload,
       });
 
-      if (!response.ok) throw new Error("Quote submission failed");
+      if (!response.ok) throw new Error("Enquiry submission failed");
 
       form.reset();
-      setStatus(`Thank you. Your moving quote request has been sent to ${site.rtMoversEmail}.`);
+      setStatus("Thank you. Your enquiry has been sent to Rush Track Transport LLC.");
     } catch (error) {
-      setStatus(`We could not send the form right now. Please email ${site.rtMoversEmail} or contact RT Movers on ${site.rtMoversPhone}.`);
+      setStatus(
+        `We could not send the form right now. Please email ${site.email} or call ${site.phone}.`
+      );
     } finally {
       setSending(false);
     }
@@ -53,33 +53,72 @@ export default function ContactForm() {
   return (
     <form className="contact-form quote-form" onSubmit={submit}>
       <div className="quote-form__heading">
-        <span className="eyebrow">RT Movers UAE</span>
-        <h2>Get your moving quote.</h2>
-        <p>Share your move details and the enquiry will be sent directly to the RT Movers contact inbox.</p>
+        <span className="eyebrow">Contact Rush Track</span>
+        <h2>Send us your enquiry.</h2>
+        <p>
+          Tell us what you need and we’ll route your message to the Rush Track team best suited to help.
+        </p>
       </div>
 
       <div className="form-grid">
-        <label>Your Name<input name="Name" required placeholder="Ahmed Ali" /></label>
-        <label>Phone<input name="Phone" required placeholder="+971 50 000 0000" /></label>
-        <label>Moving From<input name="Moving From" required placeholder="e.g. JVC, Dubai" /></label>
-        <label>Moving To<input name="Moving To" required placeholder="e.g. Dubai Marina" /></label>
-        <label>Move Type
-          <select name="Move Type" defaultValue="Home Relocation">
-            {moveTypes.map((type) => <option key={type}>{type}</option>)}
+        <label>
+          Full Name
+          <input name="Name" required placeholder="Your name" />
+        </label>
+
+        <label>
+          Company <span className="form-optional">(optional)</span>
+          <input name="Company" placeholder="Company name" />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="Email" required placeholder="name@company.com" />
+        </label>
+
+        <label>
+          Phone
+          <input name="Phone" required placeholder="+971 ..." />
+        </label>
+
+        <label>
+          Service
+          <select name="Service" defaultValue="Transport & Logistics">
+            {services.map((service) => (
+              <option key={service}>{service}</option>
+            ))}
           </select>
         </label>
-        <label>Preferred Date<input type="date" name="Preferred Date" /></label>
+
+        <label>
+          Location <span className="form-optional">(optional)</span>
+          <input name="Location" placeholder="Dubai, Sharjah, Abu Dhabi..." />
+        </label>
       </div>
 
-      <label>Message <span className="form-optional">(optional)</span>
-        <textarea name="Message" rows="5" placeholder="Tell us about your items, floor, parking or access..." />
+      <label>
+        Message
+        <textarea
+          name="Message"
+          rows="5"
+          required
+          placeholder="Tell us what you need, where, and any useful timing or project details..."
+        />
       </label>
 
       <button className="btn btn--gold" type="submit" disabled={sending}>
-        {sending ? "Sending…" : "Get My Free Quote"} <ArrowRight size={17} />
+        {sending ? "Sending…" : "Send Enquiry"} <ArrowRight size={17} />
       </button>
-      <p className="quote-form__consent">By submitting, you agree to be contacted by RT Movers UAE.</p>
-      {status && <p className="form-status" role="status">{status}</p>}
+
+      <p className="quote-form__consent">
+        By submitting, you agree to be contacted by Rush Track Transport LLC regarding your enquiry.
+      </p>
+
+      {status && (
+        <p className="form-status" role="status">
+          {status}
+        </p>
+      )}
     </form>
   );
 }
