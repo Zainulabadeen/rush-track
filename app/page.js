@@ -97,7 +97,7 @@ export default function HomePage() {
         <div className="container rt-about-grid">
           <Reveal>
             <div className="rt-about-media">
-              <img src={images.office} alt="Rush Track transport operations in the UAE" width="1448" height="1086" loading="lazy" decoding="async" />
+              <img src={images.office} alt="Rush Track team and transport fleet at the Dubai headquarters" width="1536" height="960" loading="lazy" decoding="async" />
               <div className="rt-about-badge">
                 <span>Built in the UAE</span>
                 <strong>Connected by one standard</strong>

@@ -1,0 +1,6 @@
+Rush Track V21
+
+- Replaced the Home About Us image with the approved Rush Track team-at-headquarters image.
+- Kept all V20 design, SEO, content and other imagery unchanged.
+- Cropped the image for the existing About Us card so the team, fleet, headquarters and Rush Track branding remain visible.
+- Updated the image alt text and intrinsic dimensions for correct layout/SEO.
