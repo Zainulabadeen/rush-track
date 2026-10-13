@@ -1,0 +1,15 @@
+Rush Track V24 — Google Search Console Verification
+
+Added to app/layout.js:
+- Google Search Console verification meta tag token:
+  4dWBuL7peLjHU5Dj2SXfe54RW4d_OsMBReqf-wtITFA
+
+This keeps the existing GA4 tag:
+- G-QNJMDF5J8G
+
+Important:
+- This meta tag can verify a URL-prefix Search Console property.
+- If you created a Domain property (rushtrack.ae), Google still requires the full DNS TXT record:
+  google-site-verification=4dWBuL7peLjHU5Dj2SXfe54RW4d_OsMBReqf-wtITFA
+
+No other site design, SEO metadata, schema, or tracking code was changed.

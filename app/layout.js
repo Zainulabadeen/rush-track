@@ -44,6 +44,9 @@ export const metadata = {
     description: "Commercial transport, moving and fleet support across the UAE.",
     images: ["/og-image.jpg"],
   },
+  verification: {
+    google: "4dWBuL7peLjHU5Dj2SXfe54RW4d_OsMBReqf-wtITFA",
+  },
   robots: {
     index: true,
     follow: true,
