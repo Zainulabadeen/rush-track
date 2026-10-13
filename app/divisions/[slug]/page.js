@@ -25,7 +25,7 @@ const divisionContent = {
     ],
   },
   "fleet-services": {
-    metaTitle: "Fleet Services & Vehicle Readiness UAE",
+    metaTitle: "Fleet Support Services UAE",
     metaDescription: "Rush Track fleet services support vehicle readiness, maintenance coordination and operational continuity for businesses across the UAE.",
     heading: "Fleet support built around readiness and continuity.",
     text: "Fleet support is about keeping vehicles available, maintained and matched to the work so day-to-day operations are less exposed to avoidable disruption.",

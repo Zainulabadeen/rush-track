@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -43,7 +44,7 @@ export default function Header() {
       <header className="site-header">
         <div className="container header__inner">
           <Link href="/" className="brand" aria-label="Rush Track home">
-            <img src="/images/rush-track-logo-crop.png" alt="Rush Track" width="1769" height="278" />
+            <Image src="/images/rush-track-logo-crop.png" alt="Rush Track" width={1000} height={157} sizes="(max-width: 640px) 205px, (max-width: 980px) 235px, 286px" quality={88} priority />
           </Link>
 
           <nav className="desktop-nav" aria-label="Main navigation">
@@ -70,7 +71,7 @@ export default function Header() {
 
       <div className={`mobile-panel ${open ? "open" : ""}`}>
         <div className="mobile-panel__head">
-          <img src="/images/rush-track-logo-crop.png" alt="Rush Track" width="1769" height="278" />
+          <Image src="/images/rush-track-logo-crop.png" alt="Rush Track" width={1000} height={157} sizes="(max-width: 640px) 205px, (max-width: 980px) 235px, 286px" quality={88} priority />
           <button onClick={() => setOpen(false)} aria-label="Close menu"><X /></button>
         </div>
         <nav>

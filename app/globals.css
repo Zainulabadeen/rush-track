@@ -2821,3 +2821,131 @@ main > section .rt-final-cta__inner,
 }
 .page-hero__overlay { z-index: 1; }
 .page-hero__inner { z-index: 2; }
+
+
+/* =========================================================
+   V25 — mobile performance, image delivery & accessibility
+   ========================================================= */
+
+/* Keep the yellow/gold identity while meeting contrast for small text. */
+:root { --orange: #b87500; }
+.rt-eyebrow,
+.eyebrow,
+.news-card__body > span,
+.image-card__caption span,
+.rt-division-card__body > span { color: #9a6100; }
+.rt-hero h1 span,
+.accent-orange { color: #b87500; }
+.rt-trust-item span { color: #58677a; }
+.rtmovers-contact-block > span { color: #58677a; }
+.footer__links a,
+.footer__contact > * { color: rgba(255,255,255,.78); }
+.footer__bottom { color: rgba(255,255,255,.68); }
+
+/* next/image fill elements need stable containing blocks. */
+.rt-about-media,
+.rt-division-card__media,
+.rt-fleet-banner,
+.division-row__media,
+.image-card { position: relative; }
+.rt-hero__media > img,
+.rt-about-media > img,
+.rt-division-card__media > img,
+.rt-fleet-banner > img,
+.division-row__media > img:first-child,
+.image-card > img { object-fit: cover; }
+
+/* Legal/trust pages: deliberately simple and lightweight. */
+.legal-page { min-height: 62vh; }
+.legal-page__inner { max-width: 880px; }
+.legal-page h1 { margin: 8px 0 22px; color: var(--navy); font-size: clamp(42px, 6vw, 68px); line-height: 1; letter-spacing: -.045em; }
+.legal-page h2 { margin: 34px 0 10px; color: var(--navy); font-size: 24px; }
+.legal-page p { color: #536176; font-size: 16px; line-height: 1.75; }
+.legal-page a,
+.quote-form__consent a { color: #08264a; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.footer__legal { display: flex; flex-wrap: wrap; gap: 18px; }
+.footer__legal a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer h3 { margin: 0 0 20px; font-size: 14px; }
+
+/* Reduce paint cost for below-the-fold sections without changing layout. */
+@supports (content-visibility: auto) {
+  .rt-about-section,
+  .rt-divisions-section,
+  .rt-fleet-section,
+  .rt-industries-section,
+  .rt-final-cta,
+  .section:not(.legal-page) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 820px;
+  }
+}
+
+/* Mobile refinements: stable sizing, easier reading and lighter paint work. */
+@media (max-width: 900px) {
+  .site-header { backdrop-filter: none; background: rgba(255,255,255,.99); }
+  .rt-about-badge { backdrop-filter: none; }
+  .menu-button { width: 44px; height: 44px; padding: 0; }
+}
+
+@media (max-width: 640px) {
+  html { scroll-padding-top: 76px; }
+  .topbar__inner { min-height: 34px; }
+  .topbar__left { justify-content: center; }
+  .topbar__left a[href^="mailto:"] { display: none; }
+  .topbar__left a { font-size: 11.5px; }
+
+  .site-header .header__inner { min-height: 70px; }
+  .brand { width: min(198px, 66vw); }
+
+  .rt-hero { min-height: 660px; }
+  .rt-hero__inner { padding-top: 42px; padding-bottom: 205px; }
+  .rt-hero h1 { font-size: clamp(38px, 11vw, 47px); line-height: 1; }
+  .rt-hero__copy > p { font-size: 15px; line-height: 1.62; }
+  .rt-hero__media img { object-position: 72% center; }
+
+  .rt-trust-wrap { margin-top: -34px; }
+  .rt-trust-item { min-height: 86px; padding: 18px 16px; }
+  .rt-trust-item strong { font-size: 14px; }
+  .rt-trust-item span { font-size: 11.5px; }
+
+  .rt-about-media { min-height: 330px; }
+  .rt-about-media > img { height: 330px; }
+  .rt-about-badge { left: 14px; right: 14px; bottom: 14px; min-width: 0; }
+
+  .rt-section-head h2,
+  .rt-about-copy h2,
+  .rt-fleet-copy h2,
+  .rt-final-cta h2 { font-size: clamp(34px, 10vw, 44px); }
+
+  .rt-industry-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rt-industry-item { min-height: 86px; padding: 14px; }
+
+  .page-hero { min-height: 410px; }
+  .page-hero__inner { padding-bottom: 42px; }
+  .page-hero h1 { font-size: clamp(38px, 11vw, 45px); }
+  .page-hero p { font-size: 15.5px; line-height: 1.6; }
+
+  .image-card { min-height: 320px; }
+  .image-card img { min-height: 320px; }
+  .division-row__media,
+  .division-row__media > img:first-child { min-height: 270px; height: 270px; }
+
+  .contact-cards > * { align-items: flex-start; }
+  .contact-form { border-radius: 18px; }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea { min-height: 46px; font-size: 16px; }
+
+  .footer__bottom { gap: 12px; }
+  .footer__legal { gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

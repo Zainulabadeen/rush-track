@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -51,7 +52,7 @@ export default function HomePage() {
     <>
       <section className="rt-hero">
         <div className="rt-hero__media" aria-hidden="true">
-          <img src={images.hero} alt="" aria-hidden="true" width="2172" height="724" loading="eager" fetchPriority="high" decoding="async" />
+          <Image src={images.hero} alt="" aria-hidden="true" fill priority sizes="100vw" quality={78} />
         </div>
         <div className="rt-hero__veil" aria-hidden="true" />
 
@@ -97,7 +98,7 @@ export default function HomePage() {
         <div className="container rt-about-grid">
           <Reveal>
             <div className="rt-about-media">
-              <img src={images.office} alt="Rush Track team and transport fleet at the Dubai headquarters" width="1536" height="960" loading="lazy" decoding="async" />
+              <Image src={images.office} alt="Rush Track team and transport fleet at the Dubai headquarters" fill sizes="(max-width: 900px) calc(100vw - 28px), 50vw" quality={76} />
               <div className="rt-about-badge">
                 <span>Built in the UAE</span>
                 <strong>Connected by one standard</strong>
@@ -157,10 +158,10 @@ export default function HomePage() {
               <Reveal key={item.slug} delay={index * 70}>
                 <article className="rt-division-card">
                   <div className="rt-division-card__media">
-                    <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                    <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 900px) 42vw, 33vw" quality={74} />
                     {item.external && (
                       <div className="rt-division-brand-badge">
-                        <img src={images.rtMoversLogo} alt="RT Movers" loading="lazy" decoding="async" />
+                        <Image src={images.rtMoversLogo} alt="RT Movers" width={512} height={512} sizes="124px" quality={82} />
                       </div>
                     )}
                   </div>
@@ -196,7 +197,7 @@ export default function HomePage() {
       <section className="rt-fleet-section">
         <Reveal>
           <div className="rt-fleet-banner">
-            <img src={images.fleet} alt="Rush Track fleet operating across the UAE" width="2172" height="724" loading="lazy" decoding="async" />
+            <Image src={images.fleet} alt="Rush Track fleet operating across the UAE" fill sizes="(max-width: 640px) calc(100vw - 28px), 1680px" quality={76} />
             <div className="rt-fleet-overlay" />
             <div className="container rt-fleet-copy-wrap">
               <div className="rt-fleet-copy">

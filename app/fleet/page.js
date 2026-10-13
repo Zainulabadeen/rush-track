@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, Gauge, ShieldCheck, Truck, Wrench } from "lucide-react";
 import PageHero from "@/components/PageHero";
@@ -7,7 +8,7 @@ import { images } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Fleet Services & Vehicle Readiness UAE",
+  title: "Our Fleet & Vehicle Readiness UAE",
   description: "Explore Rush Track fleet readiness, maintenance coordination and practical vehicle support for dependable transport operations across the UAE.",
   path: "/fleet",
 });
@@ -27,7 +28,7 @@ export default function FleetPage() {
       </section>
       <section className="section section--soft">
         <div className="container split-layout split-layout--reverse">
-          <Reveal><div className="image-card"><img src={images.fleetService} alt="Rush Track fleet service and maintenance support in the UAE" loading="lazy" decoding="async" /></div></Reveal>
+          <Reveal><div className="image-card"><Image src={images.fleetService} alt="Rush Track fleet service and maintenance support in the UAE" fill sizes="(max-width: 860px) calc(100vw - 28px), 48vw" quality={76} /></div></Reveal>
           <Reveal delay={100}><div className="check-list">{["Commercial transport vehicles", "Support and service vehicles", "Relocation fleet through RT Movers", "Vehicle selection based on job profile", "Maintenance and readiness coordination"].map((d) => <div key={d}><CheckCircle2 /><span>{d}</span></div>)}</div></Reveal>
         </div>
       </section>

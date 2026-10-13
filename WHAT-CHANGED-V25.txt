@@ -1,0 +1,58 @@
+Rush Track V25 — Speed, Mobile, On-Page & Technical SEO Update
+
+This update keeps the approved Rush Track design/branding while addressing the PageSpeed and SEO issues shown in the Oct 13, 2026 mobile audit.
+
+PERFORMANCE / CORE WEB VITALS
+- Converted key visual assets to Next.js Image optimization.
+- Added responsive image sizes for mobile/tablet/desktop.
+- Preloads the actual hero/LCP image with Next Image priority.
+- Recompressed large photographic WebP assets at high visual quality.
+- Reduced RT Movers and Rush Track logo source payloads while keeping retina-level detail.
+- Enabled AVIF/WebP output in next.config.mjs.
+- Changed Google Analytics scripts from afterInteractive to lazyOnload so analytics competes less with initial rendering.
+- Added content-visibility for below-the-fold sections where supported.
+- Reduced expensive mobile backdrop-filter painting.
+
+MOBILE
+- Improved small-screen hero sizing and spacing.
+- Reduced oversized mobile image areas while preserving cropping.
+- Improved header/menu tap target size.
+- Prevented the top bar email from crowding narrow screens (email remains available in menu/footer/contact).
+- Improved mobile form sizing to avoid iOS input zoom.
+- Improved mobile content/card sizing and footer spacing.
+- Added prefers-reduced-motion support.
+
+ACCESSIBILITY
+- Darkened small yellow/orange labels to meet stronger contrast against white.
+- Increased muted text contrast.
+- Increased footer text/link contrast.
+- Fixed the footer heading-level skip by changing footer section headings from H4 to H3.
+- Preserved visible focus/input behavior.
+
+ON-PAGE / TECHNICAL SEO
+- Canonical site URL is now hard-set to https://rushtrack.ae.
+- Added a permanent host redirect from rush-track.vercel.app to https://rushtrack.ae.
+- Differentiated /fleet and /divisions/fleet-services titles to reduce intent overlap.
+- Preserved Google Analytics ID G-QNJMDF5J8G.
+- Preserved Google Search Console verification token.
+- Added concise Privacy and Terms pages and linked them from the footer.
+- Contact form now links to the Privacy Notice.
+- Existing robots, sitemap, Organization/WebSite schema, canonical metadata, Open Graph and Twitter metadata remain intact.
+
+IMPORTANT
+- Lighthouse/PageSpeed scores can vary between runs and network conditions; this update is designed to address the specific audit findings, not to guarantee an identical score every run.
+- No fake business statistics, reviews, certifications or service claims were added.
+
+TEST AFTER PASTE
+1. npm install
+2. npm run dev
+3. Open http://localhost:3001
+4. Check home, About, Divisions, Fleet, Contact, Privacy and Terms on desktop + mobile width.
+5. npm run build
+6. Push to GitHub; Vercel will deploy automatically.
+7. Re-run PageSpeed Insights on https://rushtrack.ae after production deployment.
+
+GIT
+git add .
+git commit -m "Improve Rush Track speed mobile accessibility and SEO"
+git push

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { site } from "@/data/site";
 
@@ -111,7 +112,7 @@ export default function ContactForm() {
       </button>
 
       <p className="quote-form__consent">
-        By submitting, you agree to be contacted by Rush Track Transport LLC regarding your enquiry.
+        By submitting, you agree to be contacted by Rush Track Transport LLC regarding your enquiry and acknowledge our <Link href="/privacy">Privacy Notice</Link>.
       </p>
 
       {status && (

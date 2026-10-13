@@ -1,7 +1,7 @@
 export const site = {
   name: "Rush Track Transport LLC",
   shortName: "Rush Track",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://rush-track.vercel.app",
+  url: "https://rushtrack.ae",
   phone: "+971 50 235 9100",
   email: "info@rtmovers.ae",
   location: "Citadel Tower, Business Bay, Dubai, UAE",

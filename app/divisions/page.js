@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
@@ -23,7 +24,10 @@ export default function DivisionsPage() {
             {divisions.map((item, i) => (
               <Reveal key={item.slug} delay={i * 70}>
                 <article className={`division-row ${item.external ? "division-row--rtmovers" : ""}`}>
-                  <div className="division-row__media"><img src={item.image} alt={`${item.title} services from Rush Track`} loading="lazy" decoding="async" />{item.external && <img className="division-row__brand" src={images.rtMoversLogo} alt="RT Movers logo" loading="lazy" decoding="async" />}</div>
+                  <div className="division-row__media">
+                    <Image src={item.image} alt={`${item.title} services from Rush Track`} fill sizes="(max-width: 900px) calc(100vw - 44px), 48vw" quality={76} />
+                    {item.external && <Image className="division-row__brand" src={images.rtMoversLogo} alt="RT Movers logo" width={512} height={512} sizes="140px" quality={82} />}
+                  </div>
                   <div>
                     <span className="eyebrow">{item.eyebrow}</span>
                     <h2>{item.external ? <a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a> : <Link href={`/divisions/${item.slug}`}>{item.title}</Link>}</h2>
