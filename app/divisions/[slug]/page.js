@@ -68,7 +68,7 @@ export default async function DivisionDetailPage({ params }) {
 
   return (
     <>
-      <PageHero eyebrow={item.eyebrow} title={item.title} text={item.description} image={item.image} cta={false} />
+      <PageHero eyebrow={item.eyebrow} title={item.title} text={item.description} image={item.pageImage.desktop} mobileImage={item.pageImage.mobile} cta={false} />
       <section className="section section--white">
         <div className="container split-layout">
           <Reveal>

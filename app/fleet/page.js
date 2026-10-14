@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, Gauge, ShieldCheck, Truck, Wrench } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { images } from "@/data/site";
+import { images, pageImages } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -16,7 +15,7 @@ export const metadata = pageMetadata({
 export default function FleetPage() {
   return (
     <>
-      <PageHero eyebrow="Our Fleet" title="Prepared, maintained and matched to the job." text="Fleet readiness supports the quality of every transport service, from planned commercial movement to day-to-day operational support." image={images.fleet} cta={false} />
+      <PageHero eyebrow="Our Fleet" title="Prepared, maintained and matched to the job." text="Fleet readiness supports the quality of every transport service, from planned commercial movement to day-to-day operational support." image={pageImages.fleet.desktop} mobileImage={pageImages.fleet.mobile} cta={false} />
       <section className="section section--white">
         <div className="container split-layout">
           <Reveal>
@@ -28,7 +27,7 @@ export default function FleetPage() {
       </section>
       <section className="section section--soft">
         <div className="container split-layout split-layout--reverse">
-          <Reveal><div className="image-card"><Image src={images.fleetService} alt="Rush Track fleet service and maintenance support in the UAE" fill sizes="(max-width: 860px) calc(100vw - 28px), 48vw" quality={76} /></div></Reveal>
+          <Reveal><div className="image-card"><img src={images.fleetService} srcSet={`${images.fleetServiceSmall} 640w, ${images.fleetService} 960w`} sizes="(max-width: 860px) calc(100vw - 28px), 48vw" alt="Rush Track fleet service and maintenance support in the UAE" width="960" height="640" loading="lazy" decoding="async" /></div></Reveal>
           <Reveal delay={100}><div className="check-list">{["Commercial transport vehicles", "Support and service vehicles", "Relocation fleet through RT Movers", "Vehicle selection based on job profile", "Maintenance and readiness coordination"].map((d) => <div key={d}><CheckCircle2 /><span>{d}</span></div>)}</div></Reveal>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { Building2, Factory, Hotel, Landmark, ShoppingCart, Sparkles, Users } fr
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { images, industries } from "@/data/site";
+import { industries, pageImages } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -17,7 +17,7 @@ const icons = [Building2, Building2, ShoppingCart, Factory, Landmark, Sparkles, 
 export default function IndustriesPage() {
   return (
     <>
-      <PageHero eyebrow="Industries" title="Transport support that fits the way each sector works." text="We adapt planning, vehicle choice and coordination to different operating environments without adding unnecessary complexity." image={images.hero} cta={false} />
+      <PageHero eyebrow="Industries" title="Transport support that fits the way each sector works." text="We adapt planning, vehicle choice and coordination to different operating environments without adding unnecessary complexity." image={pageImages.hero.desktop} mobileImage={pageImages.hero.mobile} cta={false} />
       <section className="section section--white">
         <div className="container">
           <Reveal><SectionHeading eyebrow="Sectors We Support" title="Different operating pressures. The same need for dependable movement." text={<>Our <Link href="/divisions/transport-logistics">transport and logistics team</Link> supports commercial movement, while <Link href="/divisions/fleet-services">fleet services</Link> helps keep vehicle operations ready and dependable.</>} align="center" /></Reveal>

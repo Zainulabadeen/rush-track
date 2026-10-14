@@ -3,7 +3,7 @@ import { Boxes, Leaf, Route, ShieldCheck, Truck } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { images } from "@/data/site";
+import { pageImages } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -21,7 +21,7 @@ export default function SustainabilityPage() {
   ];
   return (
     <>
-      <PageHero eyebrow="Responsible Operations" title="Practical improvements for a more efficient transport future." text="Our approach starts with operational decisions we can improve today: routing, fleet care, resource use and better planning." image={images.port} cta={false} />
+      <PageHero eyebrow="Responsible Operations" title="Practical improvements for a more efficient transport future." text="Our approach starts with operational decisions we can improve today: routing, fleet care, resource use and better planning." image={pageImages.transport.desktop} mobileImage={pageImages.transport.mobile} cta={false} />
       <section className="section section--white">
         <div className="container">
           <Reveal><SectionHeading eyebrow="Our Approach" title="Progress that is useful and connected to operations." text="We focus on practical improvements that support efficiency and dependable service rather than adding a separate marketing layer." align="center" /></Reveal>

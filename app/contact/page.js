@@ -3,13 +3,13 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import ContactForm from "./ContactForm";
-import { images, site } from "@/data/site";
+import { pageImages, site } from "@/data/site";
 
 import { pageMetadata } from "@/lib/seo";
+
 export const metadata = pageMetadata({
-  title: "Contact Rush Track Transport LLC | Dubai, UAE",
-  description:
-    "Contact Rush Track Transport LLC for commercial transport, logistics, fleet support, moving and relocation enquiries across Dubai and the UAE.",
+  title: "RT Movers Quote & Rush Track Contact",
+  description: "Request a moving quote from RT Movers UAE or connect with Rush Track for transport, logistics and fleet requirements across Dubai and the UAE.",
   path: "/contact",
 });
 
@@ -17,10 +17,11 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact Rush Track"
-        title="Tell us what you need to move."
-        text="Speak with Rush Track about commercial transport, logistics, fleet support, moving and relocation, partnerships or another operational requirement. We’ll direct your enquiry to the right team."
-        image={images.office}
+        eyebrow="Moving & Relocation"
+        title="Tell RT Movers about your move."
+        text="Moving and relocation enquiries are handled by RT Movers UAE, our dedicated moving division. Share the move details and continue directly with their team."
+        image={pageImages.moving.desktop}
+        mobileImage={pageImages.moving.mobile}
         cta={false}
       />
 
@@ -28,66 +29,31 @@ export default function ContactPage() {
         <div className="container contact-layout quote-contact-layout">
           <Reveal>
             <div className="contact-info quote-contact-info">
-              <div className="eyebrow">Rush Track Transport LLC</div>
-              <h2>Start with the requirement. We’ll direct it to the right team.</h2>
+              <div className="eyebrow">RT Movers UAE</div>
+              <h2>A clearer way to start your move.</h2>
               <p>
-                Rush Track connects commercial transport, logistics, fleet support and moving services under one UAE corporate group. Share what you need and our team will route the enquiry to the most relevant division.
+                RT Movers handles home, apartment, villa and office relocation across the UAE, together with packing, furniture handling and related moving support.
               </p>
 
               <div className="contact-cards">
-                <a href={`tel:${site.phone.replace(/\s/g, "")}`}>
-                  <Phone />
-                  <span>
-                    Call Rush Track
-                    <strong>{site.phone}</strong>
-                  </span>
+                <a href={`tel:${site.rtMoversPhone.replace(/\s/g, "")}`}>
+                  <Phone /><span>Call RT Movers<strong>{site.rtMoversPhone}</strong></span>
                 </a>
-
-                <a
-                  href={`https://wa.me/${site.phone.replace(/\D/g, "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle />
-                  <span>
-                    WhatsApp
-                    <strong>Send us an enquiry</strong>
-                  </span>
+                <a href={`https://wa.me/${site.rtMoversPhone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle /><span>WhatsApp<strong>Instant moving enquiry</strong></span>
                 </a>
-
-                <a href={`mailto:${site.email}`}>
-                  <Mail />
-                  <span>
-                    Email
-                    <strong>{site.email}</strong>
-                  </span>
+                <a href={`mailto:${site.rtMoversEmail}`}>
+                  <Mail /><span>Email<strong>{site.rtMoversEmail}</strong></span>
                 </a>
-
-                <div>
-                  <MapPin />
-                  <span>
-                    Dubai, UAE
-                    <strong>{site.location}</strong>
-                  </span>
-                </div>
+                <div><MapPin /><span>Dubai office<strong>{site.rtMoversAddress}</strong></span></div>
               </div>
 
               <p className="page-copy-links quote-contact-note">
-                Looking for a specific service? Explore our{" "}
-                <Link href="/divisions/transport-logistics">transport and logistics</Link>{" "}
-                or <Link href="/divisions/fleet-services">fleet services</Link>. For home, villa,
-                apartment or office relocation, our dedicated{" "}
-                <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">
-                  RT Movers division
-                </a>{" "}
-                handles moving enquiries across the UAE.
+                Need something other than a move? Read about our <Link href="/divisions/transport-logistics">commercial transport and logistics</Link> or <Link href="/divisions/fleet-services">fleet services</Link>. For a direct moving enquiry, email <a href={`mailto:${site.rtMoversEmail}`}>{site.rtMoversEmail}</a>.
               </p>
             </div>
           </Reveal>
-
-          <Reveal delay={100}>
-            <ContactForm />
-          </Reveal>
+          <Reveal delay={100}><ContactForm /></Reveal>
         </div>
       </section>
     </>

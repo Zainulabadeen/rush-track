@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BadgeCheck, Compass, ShieldCheck, Users } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { images, site } from "@/data/site";
+import { images, pageImages, site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -16,7 +15,7 @@ export const metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About Rush Track" title="A focused transport group built for the UAE." text="Rush Track Transport LLC connects commercial transport, moving and fleet support under one corporate direction while keeping each service specialised." image={images.office} cta={false} />
+      <PageHero eyebrow="About Rush Track" title="A focused transport group built for the UAE." text="Rush Track Transport LLC connects commercial transport, moving and fleet support under one corporate direction while keeping each service specialised." image={pageImages.office.desktop} mobileImage={pageImages.office.mobile} cta={false} />
       <section className="section section--white">
         <div className="container split-layout">
           <Reveal><SectionHeading eyebrow="Our Structure" title="Specialist services without unnecessary complexity." text={<>Our model is straightforward: <Link href="/divisions/transport-logistics">transport and logistics</Link> for commercial movement, <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">RT Movers</a> for dedicated moving and relocation, and <Link href="/divisions/fleet-services">fleet services</Link> for vehicle readiness and operational support.</>} /></Reveal>
@@ -38,7 +37,7 @@ export default function AboutPage() {
       </section>
       <section className="section section--white">
         <div className="container split-layout split-layout--reverse">
-          <Reveal><div className="image-card"><Image src={images.fleetService} alt="Rush Track operations team supporting fleet readiness in the UAE" fill sizes="(max-width: 860px) calc(100vw - 28px), 48vw" quality={76} /></div></Reveal>
+          <Reveal><div className="image-card"><img src={images.fleetService} srcSet={`${images.fleetServiceSmall} 640w, ${images.fleetService} 960w`} sizes="(max-width: 860px) calc(100vw - 28px), 48vw" alt="Rush Track operations team supporting fleet readiness in the UAE" width="960" height="640" loading="lazy" decoding="async" /></div></Reveal>
           <Reveal delay={100}><div><SectionHeading eyebrow="Connected by Service" title="The right specialist team owns each requirement." text="That keeps responsibilities clear while allowing clients to move between services without starting from zero each time." /><p className="page-copy-links">Explore <Link href="/divisions">our divisions</Link>, see the <Link href="/industries">industries we support</Link>, review <Link href="/fleet">our fleet approach</Link>, or <Link href="/contact">contact Rush Track</Link> about a specific requirement.</p></div></Reveal>
         </div>
       </section>

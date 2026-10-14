@@ -1,0 +1,122 @@
+Rush Track V26 — Performance Recovery + Mobile + On-Page/Technical SEO
+======================================================================
+
+Audit being fixed
+-----------------
+Latest PageSpeed mobile screenshots supplied by the user showed:
+- Performance: 67
+- Accessibility: 94
+- Best Practices: 100
+- SEO: 100
+- FCP: 2.5 s
+- LCP: 10.0 s
+- TBT: 90 ms
+- CLS: 0
+- Speed Index: 5.2 s
+- Improve image delivery: about 1.7 MB estimated savings
+- LCP breakdown: most of the delay was element render delay (~9.45 s)
+- Contrast and heading-order accessibility findings remained
+
+Important diagnosis
+-------------------
+The latest PageSpeed report was still downloading the OLD image files and OLD sizes, for example:
+- rt-moving-authentic.webp ~474 KB
+- rt-about-generated.webp ~382 KB
+- rt-movers-logo.png ~252 KB
+- rt-fleet-service-generated.webp ~262 KB
+- rt-transport-generated.webp ~213 KB
+
+Those sizes match the pre-V25 assets. This is why the prior optimization was not actually reflected in the live audit (or the deployment/static files did not fully update). V26 uses a brand-new /images/v26/ path so stale/static asset confusion is removed.
+
+Performance fixes in V26
+------------------------
+1. New cache-busted responsive image set under /public/images/v26/.
+2. Home LCP hero now uses native <picture> with:
+   - mobile-specific portrait crops
+   - desktop-specific panoramic crops
+   - srcset/sizes
+   - loading=eager
+   - fetchPriority=high
+   - decoding=sync
+   - React preload hints for the correct mobile/desktop source
+3. Image reductions include approximately:
+   - Home hero: old ~278 KB -> mobile 41–59 KB / desktop 57–86 KB
+   - About image: old ~382 KB -> 51–96 KB
+   - Moving image: old ~474 KB -> 29–53 KB
+   - Transport image: old ~213 KB -> 27–48 KB
+   - Fleet service image: old ~262 KB -> 38–64 KB
+   - RT Movers logo: old ~252 KB -> ~9 KB
+   - Rush Track logo: old ~85 KB -> 11–18 KB
+4. Below-the-fold images are lazy loaded and have explicit width/height.
+5. Removed Next Image runtime transformation from content photography; V26 serves already-sized static WebP files directly.
+6. Removed the client-side IntersectionObserver Reveal system. Reveal is now a server component with no hydration JS and no hidden-above-fold content.
+7. Rebuilt globals.css from ~98 KB down to ~29 KB (about 6.6 KB gzip), removing years of duplicate/overridden CSS.
+8. Header is now a server component. Mobile navigation uses native <details> instead of React state/usePathname, reducing homepage client JS and forced layout work.
+9. Google Analytics measurement ID G-QNJMDF5J8G remains installed with lazyOnload so analytics does not compete with the initial render.
+10. Versioned images receive one-year immutable browser/CDN caching.
+
+Mobile fixes
+------------
+- Mobile-specific hero artwork avoids downloading/decoding a desktop crop.
+- Mobile hero sizing and overlay tuned for readability without oversized rendering.
+- 44x44 menu control.
+- Mobile form fields use 16px input text to prevent iOS zoom.
+- Responsive single/two-column grids and cards preserved.
+- Mobile fleet/CTA imagery has dedicated crops.
+- No expensive backdrop-filter on the sticky header.
+
+Accessibility fixes
+-------------------
+- Stronger text contrast for small gold/yellow labels and muted copy.
+- Footer low-contrast text increased.
+- Footer section labels changed from heading elements to styled text, removing the heading-order audit problem.
+- Focus-visible outlines added for keyboard users.
+- Decorative imagery uses empty alt text; meaningful imagery keeps descriptive alt text.
+- All native <img> elements now have width and height attributes.
+
+On-page / technical SEO retained or improved
+--------------------------------------------
+- Canonical base remains https://rushtrack.ae
+- rush-track.vercel.app permanently redirects to rushtrack.ae
+- GA4 remains: G-QNJMDF5J8G
+- GSC verification remains: 4dWBuL7peLjHU5Dj2SXfe54RW4d_OsMBReqf-wtITFA
+- Unique page titles and descriptions retained
+- Organization and WebSite schema retained
+- Service schema retained on division detail pages
+- robots.txt and canonical crawl settings retained
+- Sitemap contains only indexable canonical business pages
+- Removed fake/dynamic sitemap lastModified dates (better to omit than tell Google every URL changed on every request)
+- Privacy and Terms pages retained as noindex utility pages
+- No fake reviews, certifications, fleet counts or unsupported business claims added
+
+Deployment verification
+-----------------------
+V26 adds this response header:
+X-Rush-Track-Version: v26
+
+It also uses URLs beginning with:
+/images/v26/
+
+After deployment, if PageSpeed still shows /images/rt-hero-generated.webp or /images/rt-moving-authentic.webp, the new files are NOT the version being served.
+
+Apply
+-----
+1. Extract the ZIP.
+2. Paste its contents directly into the existing Rush Track project root.
+3. Choose Replace files in destination.
+4. Run:
+   npm install
+   npm run dev
+5. Check localhost:3001 on mobile and desktop widths.
+6. Optional production build check:
+   npm run build
+7. Push:
+   git add .
+   git commit -m "Fix Rush Track mobile performance and SEO"
+   git push
+8. Wait for Vercel Production deployment to become Ready.
+9. Re-run PageSpeed Insights on https://rushtrack.ae/ in Mobile mode.
+
+Expected direction
+------------------
+The changes specifically target the audit bottlenecks. A particular Lighthouse score cannot be guaranteed because lab scores vary between runs, network/server conditions and third-party scripts, but the 1.7 MB image waste and the old-image deployment problem are directly removed by this package.

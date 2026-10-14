@@ -1,22 +1,30 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import { site } from "@/data/site";
+import { images, site } from "@/data/site";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer__grid footer__grid--clean">
         <div className="footer__brand">
-          <Image src="/images/rush-track-logo-crop.png" alt="Rush Track" width={1000} height={157} sizes="280px" quality={88} />
+          <img
+            src={images.rushLogoSmall}
+            srcSet={`${images.rushLogoSmall} 400w, ${images.rushLogo} 640w`}
+            sizes="280px"
+            alt="Rush Track"
+            width="640"
+            height="100"
+            loading="lazy"
+            decoding="async"
+          />
           <p>Transport, moving and fleet services connected under one UAE corporate group.</p>
           <a className="footer__external" href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">
-            RT Movers UAE <ArrowUpRight size={16} />
+            RT Movers UAE <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </div>
 
         <div>
-          <h3>Company</h3>
+          <p className="footer__heading">Company</p>
           <div className="footer__links">
             <Link href="/about">About Us</Link>
             <Link href="/divisions">Our Divisions</Link>
@@ -27,7 +35,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3>Divisions</h3>
+          <p className="footer__heading">Divisions</p>
           <div className="footer__links">
             <a href={site.rtMoversUrl} target="_blank" rel="noopener noreferrer">RT Movers</a>
             <Link href="/divisions/transport-logistics">Transport & Logistics</Link>
@@ -36,11 +44,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3>Contact</h3>
+          <p className="footer__heading">Contact</p>
           <div className="footer__contact">
-            <span><MapPin size={17} /> {site.location}</span>
-            <a href={`tel:${site.phone.replace(/\s/g, "")}`}><Phone size={17} /> {site.phone}</a>
-            <a href={`mailto:${site.email}`}><Mail size={17} /> {site.email}</a>
+            <span><MapPin size={17} aria-hidden="true" /> {site.location}</span>
+            <a href={`tel:${site.phone.replace(/\s/g, "")}`}><Phone size={17} aria-hidden="true" /> {site.phone}</a>
+            <a href={`mailto:${site.email}`}><Mail size={17} aria-hidden="true" /> {site.email}</a>
           </div>
         </div>
       </div>
